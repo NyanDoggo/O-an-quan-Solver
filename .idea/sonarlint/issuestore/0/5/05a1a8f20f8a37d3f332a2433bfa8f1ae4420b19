@@ -1,0 +1,9 @@
+
+†"squid:ClassVariableVisibilityCheck"QMake logic a static final constant or non-public and provide accessors if needed.(ìÌŸÛ8Úƒ§×“.
+Ž"squid:ClassVariableVisibilityCheck"TMake children a static final constant or non-public and provide accessors if needed.(Æ»È›úÿÿÿÿ8œ²Òã’.
+[
+squid:S106N"9Replace this use of System.out or System.err by a logger.(áŒþ˜üÿÿÿÿ8Ùƒ£¼™.
+V
+squid:S106M"9Replace this use of System.out or System.err by a logger.(î÷¢°8ÚïŒä’.
+[
+squid:S106L"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ÕŠóæ™.
