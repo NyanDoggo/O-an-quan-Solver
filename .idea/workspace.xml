@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="653b00a9-1f8c-46bb-b212-20bee06f3579" name="Default Changelist" comment="" />
+    <list default="true" id="653b00a9-1f8c-46bb-b212-20bee06f3579" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +35,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -41,6 +46,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZfyBD1NT8NmzSLYUTfbS0UWny3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,6 +57,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -126,7 +133,7 @@
       <workItem from="1587385235244" duration="3830000" />
       <workItem from="1587464250675" duration="7599000" />
       <workItem from="1587558601637" duration="1641000" />
-      <workItem from="1587563341492" duration="587000" />
+      <workItem from="1587563341492" duration="843000" />
     </task>
     <servers />
   </component>
@@ -146,22 +153,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="298" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1585316105901" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1587563935572">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1587564010914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587563935572" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1587563935572">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1587564010914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587563935572" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1587563935571">
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1587564010914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587563935571" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1587563935572">
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1587564010914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587563935572" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1587564010915">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587564010915" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1587564010914">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1587564010914">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1587564010914">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587564010914" />
     <state x="299" y="68" key="Maven.ArtifactSearchDialog" timestamp="1587385993573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
