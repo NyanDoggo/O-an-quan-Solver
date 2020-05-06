@@ -1,21 +1,21 @@
 
-O
-squid:S106K"9Replace this use of System.out or System.err by a logger.(×•œ²
+asquid:CommentedOutCodeLine>"<This block of commented-out lines of code should be removed.(à»Þ	
+T
+squid:S106F"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
 ‚"squid:ClassVariableVisibilityCheck"TMake tileList a static final constant or non-public and provide accessors if needed.(öÂœ
 [
-squid:S106D"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ8›†“×“.
-T
-squid:S106M"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
-O
-squid:S106T"9Replace this use of System.out or System.err by a logger.(Íˆó¢
-asquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(à»Þ	
-O
-squid:S106W"9Replace this use of System.out or System.err by a logger.(×•œ²
-T
-squid:S106J"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
-T
-squid:S106O"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+squid:S106="9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ8›†“×“.
 [
-squid:S106V"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ðŸËæ’.
+squid:S106O"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ðŸËæ’.
+O
+squid:S106P"9Replace this use of System.out or System.err by a logger.(×•œ²
+O
+squid:S106M"9Replace this use of System.out or System.err by a logger.(Íˆó¢
+O
+squid:S106D"9Replace this use of System.out or System.err by a logger.(×•œ²
+T
+squid:S106H"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+T
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
 V
-squid:S106Y"9Replace this use of System.out or System.err by a logger.(Íˆó¢8ìƒ£¼™.
+squid:S106R"9Replace this use of System.out or System.err by a logger.(Íˆó¢8ìƒ£¼™.

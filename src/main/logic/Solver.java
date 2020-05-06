@@ -1,22 +1,13 @@
 package main.logic;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import main.pojo.Board;
 import main.pojo.Player;
 import main.pojo.Result;
 import main.table.Table;
 import main.util.Pair;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Solver {
 
@@ -32,24 +23,12 @@ public class Solver {
         this.isFirstPlayerTurn = true;
     }
 
-    public ArrayList<Move> getPossibleMoves(Logic logic){
-        ArrayList<Move> moveList = new ArrayList<Move>();
-        for (int i = 1; i < logic.getBoard().tileList.size(); i++){
-            int numberOfStones = logic.getBoard().tileList.get(i).currentNumberOfStones;
-            if (numberOfStones > 0 && i != 6){
-                moveList.add(new Move("left", i));
-                moveList.add(new Move("right", i));
-            }
-        }
-        return moveList;
-    }
-
     private Result firstPlayerResult(){
-        if (this.firstPlayer.getCurrentPoints() > this.secondPlayer.getCurrentPoints()){
+        if (this.firstPlayer.getCurrPts() > this.secondPlayer.getCurrPts()){
             return Result.WIN;
-        }else if (this.firstPlayer.getCurrentPoints() == this.secondPlayer.getCurrentPoints()){
+        }else if (this.firstPlayer.getCurrPts() == this.secondPlayer.getCurrPts()){
             return Result.DRAW;
-        }else if (this.firstPlayer.getCurrentPoints() < this.secondPlayer.getCurrentPoints()){
+        }else if (this.firstPlayer.getCurrPts() < this.secondPlayer.getCurrPts()){
             return Result.LOSE;
         }else{
             System.out.println("Bug in end game result");
@@ -74,34 +53,59 @@ public class Solver {
         return tuple;
     }
 
-    private void setPlayerPoint(int points){
-        if (this.isFirstPlayerTurn){
-            this.firstPlayer.setCurrentPoints(points);
-        }else{
-            this.secondPlayer.setCurrentPoints(points);
-        }
-    }
-
     public void resolveGameValue(Logic logic, State endState){
         if (logic.isEnd() && endState.isEnd){
             Result firstPlayerResult = firstPlayerResult();
             Result secondPlayerResult = flipResult(firstPlayerResult);
-            endState.setGameValueForFirstPlayer(firstPlayerResult);
-            endState.setGameValueForSecondPlayer(secondPlayerResult);
+            endState.setP1v(firstPlayerResult);
+            endState.setP2v(secondPlayerResult);
         }
         else if (logic.isEnd() != endState.isEnd){
             System.out.println("Sync Problem ");
         }
     }
 
-    private List<State> buildLevel(ArrayList<Move> moveList, Logic logic){
+    public ArrayList<Move> getPossibleMoves(State state){
+        Logic logic = state.logic;
+        ArrayList<Move> moveList = new ArrayList<Move>();
+        if (state.is1p){
+            for (int i = 1; i <= 5; i++){
+                int numberOfStones = logic.getBoard().tileList.get(i).a;
+                if (numberOfStones > 0){
+                    moveList.add(new Move("left", i));
+                    moveList.add(new Move("right", i));
+                }
+            }
+        }else {
+            for (int i = 7; i <= 11; i++){
+                int numberOfStones = logic.getBoard().tileList.get(i).a;
+                if (numberOfStones > 0){
+                    moveList.add(new Move("left", i));
+                    moveList.add(new Move("right", i));
+                }
+            }
+        }
+        return moveList;
+    }
+
+    private List<State> buildLevel(State state, ArrayList<Move> moveList, Logic logic){
         List<State> children = new ArrayList<>();
         Logic copy = new Logic(logic);
         for (Move m : moveList){
             Pair<Board, Integer> pair = move(logic, m.tileIndex, m.direction);
             Board board = pair.getFirst();
-            setPlayerPoint(pair.getSecond());
-            State child = new State(board, firstPlayer, secondPlayer, isFirstPlayerTurn, logic.isEnd(), logic);
+            Player p1Copy = new Player(state.p1);
+            Player p2Copy = new Player(state.p2);
+            if (state.is1p){
+                int points = state.p1.getCurrPts() + pair.getSecond();
+                p1Copy.setCurrPts(points);
+            }else {
+                int points = state.p2.getCurrPts() + pair.getSecond();
+                p2Copy.setCurrPts(points);
+            }
+
+            State child = new State(board, p1Copy, p2Copy, isFirstPlayerTurn, logic.isEnd(), logic);
+            child.hash = child.hashCode();
             resolveGameValue(logic, child);
             children.add(child);
             logic = new Logic(copy);
@@ -109,38 +113,80 @@ public class Solver {
         return children;
     }
 
+    private void sowStones(State state){
+        if (state.is1p){
+            for (int i = 1; i <= 5; i++){
+                state.board.tileList.get(i).a++;
+            }
+            state.p1.setCurrPts(state.p1.getCurrPts() - 5);
+        }else{
+            for (int i = 7; i <= 11; i++){
+                state.board.tileList.get(i).a++;
+            }
+            state.p2.setCurrPts(state.p2.getCurrPts() - 5);
+        }
+    }
+
     public List<State> getNextStates(State state){
         State copy = new State(state);
         if (copy.logic.isEnd()){
             return new ArrayList<>();
         }
-        ArrayList<Move> moveList = getPossibleMoves(copy.logic);
-        List<State> children = buildLevel(moveList, copy.logic);
+        ArrayList<Move> moveList = getPossibleMoves(state);
+        if (moveList.isEmpty() && !state.isEnd){
+            sowStones(state);
+            moveList = getPossibleMoves(state);
+        }
+        List<State> children = buildLevel(state, moveList, copy.logic);
         copy.children = children;
-        this.isFirstPlayerTurn = !isFirstPlayerTurn;
         for (State s : children){
-            s.isFirstPlayerTurn = this.isFirstPlayerTurn;
+            s.is1p = !state.is1p;
+            s.plyDepth = state.plyDepth + 1;
         }
         return children;
     }
 
-    private void printFirstLiniage(State root){
-        System.out.println("Printing Lineage:");
-        root.printState();
-        if (!root.children.isEmpty()){
-            printFirstLiniage(root.children.get(0));
+//    public void saveFileJson(String filePath) throws IOException {
+//        try{
+//            System.out.println(this.table);
+//            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+//            Writer writer = new FileWriter(filePath);
+//            gson.toJson(this.table, writer);
+//            writer.close();
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+
+    private void trackingProgress(int printFrequency){
+        if (table.table.size() % printFrequency == 0){
+            System.out.println("Table Size: " + table.table.size());
         }
     }
 
-    public void saveFileJson(String filePath) throws IOException {
-        try{
-            System.out.println(this.table);
-            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-            Writer writer = new FileWriter(filePath);
-            gson.toJson(this.table, writer);
-            writer.close();
-        } catch (Exception e){
-            e.printStackTrace();
+    public void solveBFS(State root){
+        List<State> queue = new ArrayList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            State currState = queue.get(0);
+            System.out.println(queue.size());
+//            System.out.println(currState);
+            queue.remove(0);
+            table.add(currState);
+            if (!currState.isEnd){
+//                System.out.println(currState);
+//                System.out.println(currState.hashCode());
+                List<State> children = getNextStates(currState);
+                currState.setChildren(children);
+                currState.hashChildren();
+                queue.addAll(children);
+            }else {
+//                System.out.println("-------------");
+//                System.out.println(currState);
+//                System.out.println(currState.hashCode());
+//                System.out.println("isEnd registered");
+            }
+            trackingProgress(2000);
         }
     }
 
@@ -152,12 +198,13 @@ public class Solver {
         }
         List<State> children = getNextStates(root);
         root.setChildren(children);
+        root.hashChildren();
         Pair<Result, Result> result = new Pair<>();
 //        List<Pair<Result, Result>> childrenResult = new ArrayList<>();
         if (children.isEmpty() || root.isEnd){
 //            System.out.println("empty");
             Pair<Result, Result> pair = new Pair<>();
-            pair.put(root.gameValueForFirstPlayer, root.gameValueForSecondPlayer);
+            pair.put(root.p1v, root.p2v);
             return pair;
         }else{
             for (State child : children){

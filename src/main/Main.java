@@ -8,10 +8,8 @@ import main.pojo.Board;
 import main.table.Table;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.List;
 
 public class Main {
@@ -86,61 +84,10 @@ public class Main {
 
         Solver solver = new Solver();
         State root = new State(true);
+        root.hash = root.hashCode();
+        solver.solveBFS(root);
         solver.table.add(root);
-
-        solver.solve(root, 0);
-        System.out.println(solver.table.getTable().size());
-//        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
-        solver.saveFileJson("C:\\JSON output\\StateTable.json");
-//        solver.table.saveToFile("C:\\JSON output\\StateTable.json", solver.table);
+        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
         System.out.println("------------------------------------");
-
-//        printChildren(root.children.get(0).children.get(0));
-
-        Table readTest = readFromJson("C:\\JSON output\\StateTable.json");
-
-        System.out.println(readTest);
-
-//        solver.table.getTable().entrySet().forEach(entry -> {
-//            System.out.println(entry.getKey() + " " + entry.getValue());
-//        });
-
-
-//        solver.saveTable("C:\\JSON output\\StateTable.json");
-//        printChildren(root);
-
-//        List<State> tmp = solver.getNextStates(root);
-//        for (State s : tmp){
-//            s.printState();
-//        }
-//        System.out.println("root");
-//        root.printState();
-//
-//        System.out.println("_______________________________---");
-
-//        printChildren(root);
-
-
-
-//        testMakeMove(2, "left");
-//
-//        List<Move> moveList = solver.getPossibleMoves();
-//
-//        ArrayList<Board> tmp = new ArrayList<>();
-
-//        for (Move m : moveList){
-//            tmp.add(move(m.tileIndex, m.direction));
-//        }
-//
-//        for (Board b : tmp){
-//            System.out.println("Compare");
-//            b.printBoard();
-//        }
-
-//        solver.logic.makeMove(moveList.get(1).tileIndex, moveList.get(1).direction);
-
-//        List<State> tmp = solver.getNextStates();
-//        printList(tmp);
-
     }
 }

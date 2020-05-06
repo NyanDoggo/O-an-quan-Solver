@@ -1,26 +1,22 @@
 package main.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.gson.annotations.Expose;
 import org.apache.commons.lang3.SerializationUtils;
 
-import java.beans.Transient;
 import java.io.Serializable;
 
 public class Tile implements Serializable {
-    @Expose
-    public int currentNumberOfStones;
 
-    @Expose
+    public int a;
+
+    @JsonIgnore
     public int tileIndex;
-    @Expose
+    @JsonIgnore
     public boolean isQuan;
+    @JsonIgnore
     public Tile nextTile;
+    @JsonIgnore
     public Tile previousTile;
-
-    public Tile() {
-
-    }
 
     public Tile(boolean isQuan, int tileIndex) {
         this.tileIndex = tileIndex;
@@ -32,7 +28,7 @@ public class Tile implements Serializable {
     }
 
     public Tile(Tile tile) {
-        this.currentNumberOfStones = tile.currentNumberOfStones;
+        this.a = tile.a;
         this.nextTile = SerializationUtils.clone(tile.nextTile);
         this.previousTile = SerializationUtils.clone(tile.previousTile);
         this.isQuan = tile.isQuan;
@@ -40,17 +36,17 @@ public class Tile implements Serializable {
     }
 
     public void initPeasantTile() {
-        this.currentNumberOfStones = 5;
+        this.a = 5;
         this.isQuan = false;
     }
 
     public void initQuanTile() {
-        this.currentNumberOfStones = 5;
+        this.a = 5;
         this.isQuan = true;
     }
 
     public void clearTile() {
-        this.currentNumberOfStones = 0;
+        this.a = 0;
     }
 
     public int getTileIndex() {
@@ -60,9 +56,9 @@ public class Tile implements Serializable {
     @Override
     public String toString() {
         if (this.isQuan) {
-            return "Q" + currentNumberOfStones;
+            return "Q" + a;
         } else {
-            return Integer.toString(currentNumberOfStones);
+            return Integer.toString(a);
         }
     }
 
@@ -73,13 +69,13 @@ public class Tile implements Serializable {
 
         Tile tile = (Tile) o;
 
-        if (currentNumberOfStones != tile.currentNumberOfStones) return false;
+        if (a != tile.a) return false;
         return isQuan == tile.isQuan;
     }
 
     @Override
     public int hashCode() {
-        int result = currentNumberOfStones;
+        int result = a;
         result = 31 * result + (isQuan ? 1 : 0);
         return result;
     }

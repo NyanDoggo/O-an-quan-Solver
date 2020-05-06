@@ -30,6 +30,10 @@ public class Board {
         }
     }
 
+    public void reverseBoard(){
+
+    }
+
     private void connectTiles(){
         tileList.get(0).previousTile = tileList.get(tileList.size() - 1);
         tileList.get(0).nextTile = tileList.get(1);
@@ -54,6 +58,13 @@ public class Board {
     @Override
     public int hashCode() {
         return tileList != null ? tileList.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                "tileList=" + tileList +
+                '}';
     }
 
     public void printBoard(){

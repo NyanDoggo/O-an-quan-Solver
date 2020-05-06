@@ -1,7 +1,11 @@
 package main.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Player {
-    private int currentPoints = 0;
+    private int currPts = 0;
+
+    @JsonIgnore
     private boolean isFirstPlayer;
 //    private Result gameValue;
 
@@ -9,13 +13,18 @@ public class Player {
         this.isFirstPlayer = isFirstPlayer;
     }
 
+    public Player(boolean isFirstPlayer, int points){
+        this.isFirstPlayer = isFirstPlayer;
+        this.currPts = points;
+    }
+
     public Player(Player player){
-        this.currentPoints = player.currentPoints;
+        this.currPts = player.currPts;
         this.isFirstPlayer = player.isFirstPlayer;
     }
 
-    public int getCurrentPoints() {
-        return currentPoints;
+    public int getCurrPts() {
+        return currPts;
     }
 
     public boolean isFirstPlayer() {
@@ -30,14 +39,14 @@ public class Player {
 //        this.gameValue = gameValue;
 //    }
 
-    public void setCurrentPoints(int currentPoints) {
-        this.currentPoints = currentPoints;
+    public void setCurrPts(int currPts) {
+        this.currPts = currPts;
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "currentPoints=" + currentPoints +
+                "currentPoints=" + currPts +
                 '}';
     }
 
@@ -48,13 +57,13 @@ public class Player {
 
         Player player = (Player) o;
 
-        if (currentPoints != player.currentPoints) return false;
+        if (currPts != player.currPts) return false;
         return isFirstPlayer == player.isFirstPlayer;
     }
 
     @Override
     public int hashCode() {
-        int result = currentPoints;
+        int result = currPts;
         result = 31 * result + (isFirstPlayer ? 1 : 0);
         return result;
     }

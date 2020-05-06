@@ -1,45 +1,45 @@
 
-Psquid:S1135"2Complete the task associated to this TODO comment.(ƒ®•‚8„šä™.
-isquid:CommentedOutCodeLinee"<This block of commented-out lines of code should be removed.(àÒè×8ê¿—ç™.
-nsquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(½€Œõüÿÿÿÿ8„šä™.
-nsquid:CommentedOutCodeLine>"<This block of commented-out lines of code should be removed.(Ù½¿áıÿÿÿÿ8ˆ–ÒØ“.
-nsquid:CommentedOutCodeLinea"<This block of commented-out lines of code should be removed.(Õ¤Õÿÿÿÿÿ8—§¦ç™.
-nsquid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(ß“èÖûÿÿÿÿ8åƒ£¼™.
-[
-squid:S106="9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
-nsquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.( ¹ëÑüÿÿÿÿ8„šä™.
-osquid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(›Åï¡úÿÿÿÿ8„šä™.
-[
-squid:S106A"9Replace this use of System.out or System.err by a logger.(ÁáåÊıÿÿÿÿ8ô²Ó×“.
-isquid:CommentedOutCodeLinel"<This block of commented-out lines of code should be removed.(»Ğ‹¨8„šä™.
-[
-squid:S106C"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
-U
-squid:S1062"9Replace this use of System.out or System.err by a logger.(¿ë˜8„šä™.
-osquid:CommentedOutCodeLine†"<This block of commented-out lines of code should be removed.(ªø¿Ãùÿÿÿÿ8„šä™.
-[
-squid:S106@"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
-osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñÕâöüÿÿÿÿ8„šä™.
-isquid:CommentedOutCodeLinec"<This block of commented-out lines of code should be removed.(Ô›Ïø8¤«—ç™.
+isquid:CommentedOutCodeLineŒ"<This block of commented-out lines of code should be removed.(¬ÄˆS8„šä™.
 €squid:S1192="]Define a constant instead of duplicating this literal "----------------------------" 3 times.(şæ£ñşÿÿÿÿ8„šä™.
-Wsquid:UselessImportCheck",Remove this unused import 'java.nio.Buffer'.(î¦Ïî8ÇÀØæ™.
-U
-squid:S106_"9Replace this use of System.out or System.err by a logger.(¥ÖC8î†–ç™.
-isquid:CommentedOutCodeLine]"<This block of commented-out lines of code should be removed.(—ğ¿±8ƒ‰Ÿç™.
-hsquid:CommentedOutCodeLinex"<This block of commented-out lines of code should be removed.(¦ºñ8„šä™.
-isquid:CommentedOutCodeLine~"<This block of commented-out lines of code should be removed.(œ·†º8„šä™.
-¤%squid:RedundantThrowsDeclarationCheckT"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø8®¡ç™.
-osquid:CommentedOutCodeLine€"<This block of commented-out lines of code should be removed.(ÒĞ°·ûÿÿÿÿ8„šä™.
-[
-squid:S106("9Replace this use of System.out or System.err by a logger.(ÉÅ˜şÿÿÿÿ8„šä™.
 V
 squid:S1060"9Replace this use of System.out or System.err by a logger.(‡Øš°8„šä™.
+hsquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(¦ºñ8„šä™.
+isquid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(öì¤¶8„šä™.
+U
+squid:S1062"9Replace this use of System.out or System.err by a logger.(¿ë˜8„šä™.
+[
+squid:S106@"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
 [
 squid:S106\"9Replace this use of System.out or System.err by a logger.(º§îüÿÿÿÿ8„šä™.
-nsquid:CommentedOutCodeLine|"<This block of commented-out lines of code should be removed.(¯øƒÇÿÿÿÿÿ8„šä™.
-nsquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(œÙÅûüÿÿÿÿ8ññ¬ä™.
-jsquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ8¨ÂÛæ™.
-isquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(öì¤¶8„šä™.
+[
+squid:S106C"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
+nsquid:CommentedOutCodeLine>"<This block of commented-out lines of code should be removed.(Ù½¿áıÿÿÿÿ8ˆ–ÒØ“.
+Psquid:S1135"2Complete the task associated to this TODO comment.(ƒ®•‚8„šä™.
+nsquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(½€Œõüÿÿÿÿ8„šä™.
+isquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(»Ğ‹¨8„šä™.
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(œ·†º8„šä™.
+[
+squid:S106="9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
+Wsquid:UselessImportCheck",Remove this unused import 'java.nio.Buffer'.(î¦Ïî8ÇÀØæ™.
 V
 squid:S1066"9Replace this use of System.out or System.err by a logger.(£Ëº8„šä™.
-isquid:CommentedOutCodeLine‹"<This block of commented-out lines of code should be removed.(¬ÄˆS8„šä™.
+osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÒĞ°·ûÿÿÿÿ8„šä™.
+nsquid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.(Õ¤Õÿÿÿÿÿ8—§¦ç™.
+[
+squid:S106A"9Replace this use of System.out or System.err by a logger.(ÁáåÊıÿÿÿÿ8ô²Ó×“.
+nsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(œÙÅûüÿÿÿÿ8ññ¬ä™.
+nsquid:CommentedOutCodeLine}"<This block of commented-out lines of code should be removed.(¯øƒÇÿÿÿÿÿ8„šä™.
+jsquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ8¨ÂÛæ™.
+U
+squid:S106`"9Replace this use of System.out or System.err by a logger.(¥ÖC8î†–ç™.
+hsquid:CommentedOutCodeLine_"<This block of commented-out lines of code should be removed.(Ïöî)8 ª‘š.
+[
+squid:S106("9Replace this use of System.out or System.err by a logger.(ÉÅ˜şÿÿÿÿ8„šä™.
+nsquid:CommentedOutCodeLinep"<This block of commented-out lines of code should be removed.(ß“èÖûÿÿÿÿ8åƒ£¼™.
+osquid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(›Åï¡úÿÿÿÿ8„šä™.
+osquid:CommentedOutCodeLine‡"<This block of commented-out lines of code should be removed.(ªø¿Ãùÿÿÿÿ8„šä™.
+[
+squid:S106f"9Replace this use of System.out or System.err by a logger.(Ò¥Ó‹ùÿÿÿÿ8œ‚š‘š.
+nsquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.( ¹ëÑüÿÿÿÿ8„šä™.
+osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñÕâöüÿÿÿÿ8„šä™.
+isquid:CommentedOutCodeLine]"<This block of commented-out lines of code should be removed.(—ğ¿±8³·­‘š.

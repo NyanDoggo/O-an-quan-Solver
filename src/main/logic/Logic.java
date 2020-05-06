@@ -31,9 +31,8 @@ public class Logic {
     public int makeMove(int tileIndex, String direction){
         int acquiredPoints = 0;
         Tile tmp = board.tileList.get(tileIndex);
-        //currentNumberOfPickedStones = tmp.currentNumberOfStones;
-        int numberOfPickedStones = tmp.currentNumberOfStones;
-        tmp.currentNumberOfStones = 0;
+        int numberOfPickedStones = tmp.a;
+        tmp.a = 0;
         if (direction.equalsIgnoreCase("left")){
            int haltIndex = passStone(tmp.previousTile, direction, numberOfPickedStones);
            Tile haltTile = board.tileList.get(haltIndex);
@@ -42,18 +41,21 @@ public class Logic {
                 return 0;
             }
             //if next tiles from haltIndex has 0 stones, return no points and halt the method
-            else if (haltTile.currentNumberOfStones == 0 && haltTile.nextTile.currentNumberOfStones == 0){
+            else if (haltTile.a == 0 && haltTile.previousTile.a == 0){
                 return 0;
             }
             // if next tiles from haltIndex has stones, return that amount of points and halt the method
-            else if (haltTile.currentNumberOfStones == 0 && haltTile.nextTile.currentNumberOfStones != 0){
-                if (haltTile.previousTile.isQuan){
-                    acquiredPoints = haltTile.previousTile.currentNumberOfStones + quanPoint;
-                    this.capturedQuanCounter++;
-                    haltTile.previousTile.clearTile();
-                }else{
-                    acquiredPoints = haltTile.previousTile.currentNumberOfStones;
-                    haltTile.previousTile.clearTile();
+            else if (haltTile.a == 0 && haltTile.previousTile.a != 0){
+                while (haltTile.a == 0 && haltTile.previousTile.a != 0){
+                    if (haltTile.previousTile.isQuan){
+                        acquiredPoints += haltTile.previousTile.a + quanPoint;
+                        this.capturedQuanCounter++;
+                        haltTile.previousTile.clearTile();
+                    }else{
+                        acquiredPoints += haltTile.previousTile.a;
+                        haltTile.previousTile.clearTile();
+                    }
+                    haltTile = haltTile.previousTile.previousTile;
                 }
                 return acquiredPoints;
             }
@@ -68,18 +70,23 @@ public class Logic {
                return 0;
            }
            //if next tiles from haltIndex has 0 stones, return no points and halt the method
-           else if (haltTile.currentNumberOfStones == 0 && haltTile.nextTile.currentNumberOfStones == 0){
+           else if (haltTile.a == 0 && haltTile.nextTile.a == 0){
                return 0;
            }
-           // if next tiles from haltIndex has stones, return that amount of points and halt the method
-           else if (haltTile.currentNumberOfStones == 0 && haltTile.nextTile.currentNumberOfStones != 0){
-               if (haltTile.nextTile.isQuan){
-                   acquiredPoints = haltTile.nextTile.currentNumberOfStones + quanPoint;
-                   this.capturedQuanCounter++;
-                   haltTile.nextTile.clearTile();
-               }else{
-                   acquiredPoints = haltTile.nextTile.currentNumberOfStones;
-                   haltTile.nextTile.clearTile();
+           // if next tiles from haltIndex has stones, return that amount of points, check if next tile is empty and
+           // the one after that has stones and halt the method
+
+           else if (haltTile.a == 0 && haltTile.nextTile.a != 0){
+               while (haltTile.a == 0 && haltTile.nextTile.a != 0){
+                   if (haltTile.nextTile.isQuan){
+                       acquiredPoints += haltTile.nextTile.a + quanPoint;
+                       this.capturedQuanCounter++;
+                       haltTile.nextTile.clearTile();
+                   }else{
+                       acquiredPoints += haltTile.nextTile.a;
+                       haltTile.nextTile.clearTile();
+                   }
+                    haltTile = haltTile.nextTile.nextTile;
                }
                return acquiredPoints;
            }
@@ -95,12 +102,12 @@ public class Logic {
             return returnIndex;
         }
         if (direction.equalsIgnoreCase("left")){
-            tile.currentNumberOfStones += 1;
+            tile.a += 1;
             returnIndex = passStone(tile.previousTile, "left",currentNumberOfPickedStones - 1);
         }
 
         if (direction.equalsIgnoreCase("right")){
-            tile.currentNumberOfStones += 1;
+            tile.a += 1;
             returnIndex = passStone(tile.nextTile, "right",currentNumberOfPickedStones - 1);
         }
         return returnIndex;
