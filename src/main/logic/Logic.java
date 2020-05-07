@@ -50,9 +50,11 @@ public class Logic {
                     if (haltTile.previousTile.isQuan){
                         acquiredPoints += haltTile.previousTile.a + quanPoint;
                         this.capturedQuanCounter++;
+                        this.board.remainingStones -= acquiredPoints;
                         haltTile.previousTile.clearTile();
                     }else{
                         acquiredPoints += haltTile.previousTile.a;
+                        this.board.remainingStones -= acquiredPoints;
                         haltTile.previousTile.clearTile();
                     }
                     haltTile = haltTile.previousTile.previousTile;
@@ -60,17 +62,11 @@ public class Logic {
                 return acquiredPoints;
             }
             acquiredPoints = makeMove(haltIndex, direction);
-        }
-
-        if (direction.equalsIgnoreCase("right")){
+        }else if (direction.equalsIgnoreCase("right")){
            int haltIndex = passStone(tmp.nextTile, direction, numberOfPickedStones);
            Tile haltTile = board.tileList.get(haltIndex);
-           //if stop before Quan, return no points and halt the method
-           if (haltIndex == 0 || haltIndex == 6){
-               return 0;
-           }
            //if next tiles from haltIndex has 0 stones, return no points and halt the method
-           else if (haltTile.a == 0 && haltTile.nextTile.a == 0){
+            if (haltTile.a == 0 && haltTile.nextTile.a == 0){
                return 0;
            }
            // if next tiles from haltIndex has stones, return that amount of points, check if next tile is empty and
@@ -81,15 +77,20 @@ public class Logic {
                    if (haltTile.nextTile.isQuan){
                        acquiredPoints += haltTile.nextTile.a + quanPoint;
                        this.capturedQuanCounter++;
+                       this.board.remainingStones -= acquiredPoints;
                        haltTile.nextTile.clearTile();
                    }else{
                        acquiredPoints += haltTile.nextTile.a;
+                       this.board.remainingStones -= acquiredPoints;
                        haltTile.nextTile.clearTile();
                    }
                     haltTile = haltTile.nextTile.nextTile;
                }
                return acquiredPoints;
-           }
+           }//if stop before Quan, return no points and halt the method
+            else if ((haltIndex == 0 && haltTile.a != 0)|| (haltIndex == 6 && haltTile.a != 0)){
+                return 0;
+            }
            acquiredPoints = makeMove(haltIndex, direction);
         }
         return acquiredPoints;

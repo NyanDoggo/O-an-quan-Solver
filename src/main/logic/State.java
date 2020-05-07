@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class State {
     public Board board;
-    Logic logic;
+    public Logic logic;
     public int hash;
     public int realValue;
     public int value;

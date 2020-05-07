@@ -84,6 +84,7 @@ public class Main {
 
         Solver solver = new Solver();
         State root = new State(true);
+//        System.out.println(root.logic.getBoard().remainingStones);
         root.hash = root.hashCode();
         solver.solveBFS(root);
 //        solver.table.add(root);

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Board {
     public List<Tile> tileList = new ArrayList<>();
+    public int remainingStones;
 
     public Board(){
         initBoard();
@@ -20,6 +21,7 @@ public class Board {
 
     public void initBoard(){
         int numberOfTiles = 12;
+        this.remainingStones = 70;
         for (int i = 0; i < numberOfTiles; i++){
             //QuanTile Index: 0 and 6
             if (i == 0 || i == 6){
@@ -28,10 +30,6 @@ public class Board {
                 tileList.add(new Tile(false, i));
             }
         }
-    }
-
-    public void reverseBoard(){
-
     }
 
     private void connectTiles(){

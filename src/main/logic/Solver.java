@@ -103,7 +103,6 @@ public class Solver {
                 int points = state.p2.getCurrPts() + pair.getSecond();
                 p2Copy.setCurrPts(points);
             }
-
             State child = new State(board, p1Copy, p2Copy, isFirstPlayerTurn, logic.isEnd(), logic);
             child.determineTrueValue();
             child.hash = child.hashCode();
@@ -165,19 +164,31 @@ public class Solver {
         }
     }
 
+    public void alphaBeta(State state){
+//        System.out.println(state.logic.getBoard().remainingStones);
+        if (state.p1.getCurrPts() + state.logic.getBoard().remainingStones < state.p2.getCurrPts()){
+            state.prune();
+        }
+    }
+
     public void solveBFS(State root){
         List<State> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
             State currState = queue.get(0);
-            queue.remove(0);
-            table.add(currState);
-            if (!currState.isEnd &&  !this.table.exists(queue.get(0))){
+            System.out.println("logic " + currState.logic.getBoard().remainingStones);
+            System.out.println("board " + currState.board.remainingStones);
+            if (!currState.isEnd && !this.table.exists(queue.get(0)) && !currState.isPrune){
                 List<State> children = getNextStates(currState);
+                for (State s : children){
+                    alphaBeta(s);
+                }
                 currState.setChildren(children);
                 currState.hashChildren();
                 queue.addAll(children);
             }
+            table.add(currState);
+            queue.remove(0);
             trackingProgress(2000);
         }
     }
