@@ -86,7 +86,7 @@ public class Main {
         State root = new State(true);
         root.hash = root.hashCode();
         solver.solveBFS(root);
-        solver.table.add(root);
+//        solver.table.add(root);
         solver.table.saveToFile("C:\\JSON output\\StateTable.json");
         System.out.println("------------------------------------");
     }

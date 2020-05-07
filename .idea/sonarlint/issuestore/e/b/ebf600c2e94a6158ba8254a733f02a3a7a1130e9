@@ -1,24 +1,23 @@
 
-osquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(××È¯úÿÿÿÿ8ÈÌàæ™.
-ssquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„8¿âËæ™.
-“squid:S1319#"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ŠšÍçüÿÿÿÿ8ü…“×“.
-jsquid:CommentedOutCodeLine«"<This block of commented-out lines of code should be removed.(¡Ú¡8™¦¿ä™.
-V
-squid:S106]"9Replace this use of System.out or System.err by a logger.(á¡º¨8Ï¹Åæ’.
-Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8‰¶¯‘š.
-psquid:S2293$"YReplace the type specification in this constructor call with the diamond operator ("<>").(é»ê¡
-osquid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(È¡®øÿÿÿÿ8Óƒ£¼™.
+W
+squid:S106£"9Replace this use of System.out or System.err by a logger.(îŒ„¬8ÊÓ—Ñž.
+psquid:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(é»ê¡
+osquid:CommentedOutCodeLine¸"<This block of commented-out lines of code should be removed.(€Ê¹½úÿÿÿÿ8Óƒ£¼™.
 T
-squid:S1067"9Replace this use of System.out or System.err by a logger.(çÄÁ±ýÿÿÿÿ
-osquid:CommentedOutCodeLineœ"<This block of commented-out lines of code should be removed.(è´õþÿÿÿÿ8–³Çä™.
-^squid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8è¥Éæ™.
-†"squid:ClassVariableVisibilityCheck"XMake secondPlayer a static final constant or non-public and provide accessors if needed.(ÛõÖð
-…"squid:ClassVariableVisibilityCheck"WMake firstPlayer a static final constant or non-public and provide accessors if needed.(¸°ìŸ
-W
-squid:S106€"9Replace this use of System.out or System.err by a logger.( ÕåÊ8°¼ãŒ”.
-Tsquid:UselessImportCheck")Remove this unused import 'java.io.File'.(†Ð¥Å8¿âËæ™.
-jsquid:CommentedOutCodeLinež"<This block of commented-out lines of code should be removed.(Â¿áÕ8Óƒ£¼™.
-ssquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.databind.ObjectMapper'.(´‘¨™8¿âËæ™.
-‹"squid:ClassVariableVisibilityCheck"QMake table a static final constant or non-public and provide accessors if needed.(²Î°Äÿÿÿÿÿ8××†Ù“.
-W
-squid:S106‰"9Replace this use of System.out or System.err by a logger.(Óý¼8†Ú¼‘š.
+squid:S106""9Replace this use of System.out or System.err by a logger.(çÄÁ±ýÿÿÿÿ
+†"squid:ClassVariableVisibilityCheck"XMake secondPlayer a static final constant or non-public and provide accessors if needed.(ÛõÖð
+jsquid:CommentedOutCodeLineÚ"<This block of commented-out lines of code should be removed.(¡Ú¡8™¦¿ä™.
+jsquid:CommentedOutCodeLineÍ"<This block of commented-out lines of code should be removed.(Â¿áÕ8ÊÓ—Ñž.
+osquid:CommentedOutCodeLineÔ"<This block of commented-out lines of code should be removed.(××È¯úÿÿÿÿ8ÈÌàæ™.
+isquid:CommentedOutCodeLine­"<This block of commented-out lines of code should be removed.(¬‡¡&8Â‹åÒž.
+Žsquid:S1319D"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÅÑ¦¡8ü…“×“.
+osquid:CommentedOutCodeLineÃ"<This block of commented-out lines of code should be removed.(È¡®øÿÿÿÿ8Óƒ£¼™.
+jsquid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(þ½Ë¸8ÊÓ—Ñž.
+osquid:CommentedOutCodeLineË"<This block of commented-out lines of code should be removed.(è´õþÿÿÿÿ8–³Çä™.
+V
+squid:S106@"9Replace this use of System.out or System.err by a logger.(á¡º¨8Ï¹Åæ’.
+‹"squid:ClassVariableVisibilityCheck"QMake table a static final constant or non-public and provide accessors if needed.(²Î°Äÿÿÿÿÿ8××†Ù“.
+\
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(âêØÿÿÿÿÿ8 ”ÊÚž.
+isquid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(¬‡¡&8ÊÓ—Ñž.
+…"squid:ClassVariableVisibilityCheck"WMake firstPlayer a static final constant or non-public and provide accessors if needed.(¸°ìŸ

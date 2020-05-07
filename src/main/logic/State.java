@@ -12,6 +12,8 @@ public class State {
     public Board board;
     Logic logic;
     public int hash;
+    public int realValue;
+    public int value;
     public Player p1;
     public Player p2;
     public boolean is1p ;
@@ -20,11 +22,10 @@ public class State {
     public Result p2v;
     public int plyDepth;
     public List<Integer> childrenHash;
+    public boolean isPrune;
     @JsonIgnore
     public List<State> children;
-
-
-
+    
     public void hashChildren(){
         for (State s : this.children){
             this.childrenHash.add(s.hashCode());
@@ -48,6 +49,10 @@ public class State {
         this.p2 = new Player(false);
         this.is1p = true;
         this.isEnd = false;
+        this.isPrune = false;
+        this.value = 0;
+        this.realValue = 0;
+        this.hash = this.hashCode();
         this.children = new ArrayList<>();
         this.childrenHash = new ArrayList<>();
         this.plyDepth = 0;
@@ -72,9 +77,17 @@ public class State {
         this.isEnd = state.isEnd;
         this.p1v = state.p1v;
         this.p2v = state.p2v;
+        this.hash = state.hash;
+        this.isPrune = state.isPrune;
+        this.realValue = state.realValue;
+        this.value = state.value;
         this.children = state.children;
         this.childrenHash = state.childrenHash;
         this.logic = new Logic(state.logic);
+    }
+
+    public void prune(){
+        this.isPrune = true;
     }
 
     public void setP1v(Result result){
@@ -95,6 +108,10 @@ public class State {
     public void setChildren(List<State> children){
         this.children = children;
 
+    }
+
+    public void determineTrueValue(){
+        this.realValue = this.p1.getCurrPts() - this.p2.getCurrPts();
     }
 
     @Override
@@ -142,6 +159,7 @@ public class State {
                 ", isEnd=" + isEnd +
                 ", gameValueForFirstPlayer=" + p1v +
                 ", gameValueForSecondPlayer=" + p2v +
+                ", trueValue=" + realValue +
                 ", plyDepth=" + plyDepth +
 //                ", children=" + children +
                 ", hashChildren" + childrenHash +

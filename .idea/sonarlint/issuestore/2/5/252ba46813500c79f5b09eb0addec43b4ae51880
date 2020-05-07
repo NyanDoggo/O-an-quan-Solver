@@ -1,7 +1,6 @@
 
+isquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(°¼¼
+‹"squid:ClassVariableVisibilityCheck	"QMake board a static final constant or non-public and provide accessors if needed.(ææéŠşÿÿÿÿ8Ş¸Ù…“.
+bsquid:S1192A"FDefine a constant instead of duplicating this literal "right" 3 times.(âòÆıÿÿÿÿ
 8squid:S1170
 "!Make this final field static too.(çšœ£
-isquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(°¼¼
-bsquid:S1192?"FDefine a constant instead of duplicating this literal "right" 3 times.(âòÆıÿÿÿÿ
-asquid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(ã’\
-‹"squid:ClassVariableVisibilityCheck	"QMake board a static final constant or non-public and provide accessors if needed.(ææéŠşÿÿÿÿ8Ş¸Ù…“.

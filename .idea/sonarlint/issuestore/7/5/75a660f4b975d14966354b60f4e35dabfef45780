@@ -1,21 +1,22 @@
 
-asquid:CommentedOutCodeLine>"<This block of commented-out lines of code should be removed.(à»Þ	
-T
-squid:S106F"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
-‚"squid:ClassVariableVisibilityCheck"TMake tileList a static final constant or non-public and provide accessors if needed.(öÂœ
-[
-squid:S106="9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ8›†“×“.
-[
-squid:S106O"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ðŸËæ’.
 O
-squid:S106P"9Replace this use of System.out or System.err by a logger.(×•œ²
+squid:S106X"9Replace this use of System.out or System.err by a logger.(Íˆó¢
 O
-squid:S106M"9Replace this use of System.out or System.err by a logger.(Íˆó¢
-O
-squid:S106D"9Replace this use of System.out or System.err by a logger.(×•œ²
+squid:S106O"9Replace this use of System.out or System.err by a logger.(×•œ²
 T
-squid:S106H"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
-T
-squid:S106C"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
+squid:S106Z"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
 V
-squid:S106R"9Replace this use of System.out or System.err by a logger.(Íˆó¢8ìƒ£¼™.
+squid:S106]"9Replace this use of System.out or System.err by a logger.(Íˆó¢8ìƒ£¼™.
+¤squid:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚ä¶Ëþÿÿÿÿ8äÓ—Ñž.
+asquid:CommentedOutCodeLineI"<This block of commented-out lines of code should be removed.(à»Þ	
+T
+squid:S106H"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
+V
+squid:S106["9Replace this use of System.out or System.err by a logger.(×•œ²8äÓ—Ñž.
+T
+squid:S106N"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
+T
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
+[
+squid:S106S"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ðŸËæ’.
+‚"squid:ClassVariableVisibilityCheck"TMake tileList a static final constant or non-public and provide accessors if needed.(öÂœ

@@ -23,12 +23,12 @@ public class Solver {
         this.isFirstPlayerTurn = true;
     }
 
-    private Result firstPlayerResult(){
-        if (this.firstPlayer.getCurrPts() > this.secondPlayer.getCurrPts()){
+    private Result firstPlayerResult(State state){
+        if (state.p1.getCurrPts() > state.p2.getCurrPts()){
             return Result.WIN;
-        }else if (this.firstPlayer.getCurrPts() == this.secondPlayer.getCurrPts()){
+        }else if (state.p1.getCurrPts() == state.p2.getCurrPts()){
             return Result.DRAW;
-        }else if (this.firstPlayer.getCurrPts() < this.secondPlayer.getCurrPts()){
+        }else if (state.p1.getCurrPts() < state.p2.getCurrPts()){
             return Result.LOSE;
         }else{
             System.out.println("Bug in end game result");
@@ -55,7 +55,7 @@ public class Solver {
 
     public void resolveGameValue(Logic logic, State endState){
         if (logic.isEnd() && endState.isEnd){
-            Result firstPlayerResult = firstPlayerResult();
+            Result firstPlayerResult = firstPlayerResult(endState);
             Result secondPlayerResult = flipResult(firstPlayerResult);
             endState.setP1v(firstPlayerResult);
             endState.setP2v(secondPlayerResult);
@@ -105,6 +105,7 @@ public class Solver {
             }
 
             State child = new State(board, p1Copy, p2Copy, isFirstPlayerTurn, logic.isEnd(), logic);
+            child.determineTrueValue();
             child.hash = child.hashCode();
             resolveGameValue(logic, child);
             children.add(child);
@@ -165,26 +166,17 @@ public class Solver {
     }
 
     public void solveBFS(State root){
-        List<State> queue = new ArrayList<>();
+        List<State> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
             State currState = queue.get(0);
-            System.out.println(queue.size());
-//            System.out.println(currState);
             queue.remove(0);
             table.add(currState);
-            if (!currState.isEnd){
-//                System.out.println(currState);
-//                System.out.println(currState.hashCode());
+            if (!currState.isEnd &&  !this.table.exists(queue.get(0))){
                 List<State> children = getNextStates(currState);
                 currState.setChildren(children);
                 currState.hashChildren();
                 queue.addAll(children);
-            }else {
-//                System.out.println("-------------");
-//                System.out.println(currState);
-//                System.out.println(currState.hashCode());
-//                System.out.println("isEnd registered");
             }
             trackingProgress(2000);
         }
