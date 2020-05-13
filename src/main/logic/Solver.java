@@ -6,7 +6,6 @@ import main.pojo.Result;
 import main.table.Table;
 import main.util.Pair;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Solver {
@@ -18,8 +17,8 @@ public class Solver {
 
 
     public Solver(){
-        this.firstPlayer = new Player(true);
-        this.secondPlayer = new Player(false);
+        this.firstPlayer = new Player();
+        this.secondPlayer = new Player();
         this.isFirstPlayerTurn = true;
     }
 
@@ -93,7 +92,7 @@ public class Solver {
         Logic copy = new Logic(logic);
         for (Move m : moveList){
             Pair<Board, Integer> pair = move(logic, m.tileIndex, m.direction);
-            Board board = pair.getFirst();
+//            Board board = pair.getFirst();
             Player p1Copy = new Player(state.p1);
             Player p2Copy = new Player(state.p2);
             if (state.is1p){
@@ -103,7 +102,7 @@ public class Solver {
                 int points = state.p2.getCurrPts() + pair.getSecond();
                 p2Copy.setCurrPts(points);
             }
-            State child = new State(board, p1Copy, p2Copy, isFirstPlayerTurn, logic.isEnd(), logic);
+            State child = new State(p1Copy, p2Copy, isFirstPlayerTurn, logic.isEnd(), logic);
             child.determineTrueValue();
             child.hash = child.hashCode();
             resolveGameValue(logic, child);
@@ -116,12 +115,12 @@ public class Solver {
     private void sowStones(State state){
         if (state.is1p){
             for (int i = 1; i <= 5; i++){
-                state.board.tileList.get(i).a++;
+                state.logic.board.tileList.get(i).a++;
             }
             state.p1.setCurrPts(state.p1.getCurrPts() - 5);
         }else{
             for (int i = 7; i <= 11; i++){
-                state.board.tileList.get(i).a++;
+                state.logic.board.tileList.get(i).a++;
             }
             state.p2.setCurrPts(state.p2.getCurrPts() - 5);
         }
@@ -141,7 +140,7 @@ public class Solver {
         copy.children = children;
         for (State s : children){
             s.is1p = !state.is1p;
-            s.plyDepth = state.plyDepth + 1;
+            s.pD = state.pD + 1;
         }
         return children;
     }
@@ -164,20 +163,25 @@ public class Solver {
         }
     }
 
+    //TODO: fix board remaining Stones
     public void alphaBeta(State state){
-//        System.out.println(state.logic.getBoard().remainingStones);
-        if (state.p1.getCurrPts() + state.logic.getBoard().remainingStones < state.p2.getCurrPts()){
+        int p1 = state.p1.getCurrPts();
+        int p2 = state.p2.getCurrPts();
+        int remainingStones = 70 - (p1 + p2);
+        if (p1 + remainingStones < p2){
             state.prune();
         }
     }
 
-    public void solveBFS(State root){
+    public void solveBFS(State root, int depth){
         List<State> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
             State currState = queue.get(0);
-            System.out.println("logic " + currState.logic.getBoard().remainingStones);
-            System.out.println("board " + currState.board.remainingStones);
+            System.out.println(currState);
+            if (currState.pD == 6){
+                return;
+            }
             if (!currState.isEnd && !this.table.exists(queue.get(0)) && !currState.isPrune){
                 List<State> children = getNextStates(currState);
                 for (State s : children){
@@ -187,9 +191,11 @@ public class Solver {
                 currState.hashChildren();
                 queue.addAll(children);
             }
-            table.add(currState);
+            if (!currState.isPrune){
+                table.add(currState);
+            }
             queue.remove(0);
-            trackingProgress(2000);
+            trackingProgress(10000);
         }
     }
 
@@ -211,7 +217,7 @@ public class Solver {
             return pair;
         }else{
             for (State child : children){
-                child.plyDepth = count;
+                child.pD = count;
 //                child.printState();
                 if (table.exists(child)){
                     break;

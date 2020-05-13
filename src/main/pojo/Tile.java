@@ -3,6 +3,7 @@ package main.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.SerializationUtils;
 
+import java.beans.Transient;
 import java.io.Serializable;
 
 public class Tile implements Serializable {
@@ -17,6 +18,10 @@ public class Tile implements Serializable {
     public Tile nextTile;
     @JsonIgnore
     public Tile previousTile;
+
+    public Tile(){
+        super();
+    }
 
     public Tile(boolean isQuan, int tileIndex) {
         this.tileIndex = tileIndex;

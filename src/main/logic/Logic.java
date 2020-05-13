@@ -1,5 +1,6 @@
 package main.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import main.pojo.Board;
 import main.pojo.Tile;
 
@@ -50,11 +51,9 @@ public class Logic {
                     if (haltTile.previousTile.isQuan){
                         acquiredPoints += haltTile.previousTile.a + quanPoint;
                         this.capturedQuanCounter++;
-                        this.board.remainingStones -= acquiredPoints;
                         haltTile.previousTile.clearTile();
                     }else{
                         acquiredPoints += haltTile.previousTile.a;
-                        this.board.remainingStones -= acquiredPoints;
                         haltTile.previousTile.clearTile();
                     }
                     haltTile = haltTile.previousTile.previousTile;
@@ -77,11 +76,9 @@ public class Logic {
                    if (haltTile.nextTile.isQuan){
                        acquiredPoints += haltTile.nextTile.a + quanPoint;
                        this.capturedQuanCounter++;
-                       this.board.remainingStones -= acquiredPoints;
                        haltTile.nextTile.clearTile();
                    }else{
                        acquiredPoints += haltTile.nextTile.a;
-                       this.board.remainingStones -= acquiredPoints;
                        haltTile.nextTile.clearTile();
                    }
                     haltTile = haltTile.nextTile.nextTile;
@@ -116,9 +113,11 @@ public class Logic {
 
     @Override
     public String toString() {
-        return "Logic{" +
-                "capturedQuanCounter=" + capturedQuanCounter +
-                '}';
+        final StringBuffer sb = new StringBuffer("Logic{");
+        sb.append("board=").append(board);
+        sb.append(", capturedQuanCounter=").append(capturedQuanCounter);
+        sb.append('}');
+        return sb.toString();
     }
 
     public Board getBoard(){

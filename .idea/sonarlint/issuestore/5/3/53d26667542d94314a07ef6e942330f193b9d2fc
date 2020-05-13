@@ -1,7 +1,7 @@
 
-†"squid:ClassVariableVisibilityCheck"QMake table a static final constant or non-public and provide accessors if needed.(ƒ’·8Œÿîæ™.
-squid:UselessImportCheck"ORemove this unused import 'com.fasterxml.jackson.core.JsonProcessingException'.(ßÔïÇûÿÿÿÿ8­Ó¿æ™.
-2squid:S1700"Rename field "table"(ƒ’·8Ÿ¸áâ™.
-isquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(ş½Ë¸8š¯‘š.
-‹squid:S1319"mThe type of the "table" object should be an interface such as "Map" rather than the implementation "HashMap".(ƒ’·8Œÿîæ™.
-‹squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(¼æ¾é8Ÿ¸áâ™.
+‹squid:S1319"mThe type of the "table" object should be an interface such as "Map" rather than the implementation "HashMap".(ƒ’·8Œÿîæ™.
+isquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(ş½Ë¸8š¯‘š.
+‹squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(¼æ¾é8Ÿ¸áâ™.
+2squid:S1700"Rename field "table"(ƒ’·8Ÿ¸áâ™.
+†"squid:ClassVariableVisibilityCheck"QMake table a static final constant or non-public and provide accessors if needed.(ƒ’·8Œÿîæ™.
+@squid:S1948""Make "table" private or transient.(ƒ’·8é¬°Ÿ.

@@ -1,11 +1,21 @@
 package main.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
+
     public List<Tile> tileList = new ArrayList<>();
-    public int remainingStones;
+
+//    public int[] board = new int [12];
+
+    public void tileToArray(){
+        for (int i = 0; i < tileList.size(); i++){
+//            this.board[i] = tileList.get(i).a;
+        }
+    }
 
     public Board(){
         initBoard();
@@ -21,7 +31,6 @@ public class Board {
 
     public void initBoard(){
         int numberOfTiles = 12;
-        this.remainingStones = 70;
         for (int i = 0; i < numberOfTiles; i++){
             //QuanTile Index: 0 and 6
             if (i == 0 || i == 6){

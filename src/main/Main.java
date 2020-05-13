@@ -2,14 +2,14 @@ package main;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.logic.Logic;
+import main.logic.LogicData;
 import main.logic.Solver;
 import main.logic.State;
 import main.pojo.Board;
 import main.table.Table;
+import main.util.TableSerializable;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 public class Main {
@@ -79,16 +79,33 @@ public class Main {
         return mapper.readValue(br, Table.class);
     }
 
+    public static void saveToFile(String filePath, State tmp) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File(filePath), tmp);
+    }
+
     public static void main(String[] args) throws IOException {
 //        testFirstLevel();
 
         Solver solver = new Solver();
         State root = new State(true);
-//        System.out.println(root.logic.getBoard().remainingStones);
-        root.hash = root.hashCode();
-        solver.solveBFS(root);
+//        solver.solveBFS(root,5);
+//        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
+
+        saveToFile("C:\\JSON output\\State.json", root);
+
+        State load = new ObjectMapper().readValue(new File("C:\\JSON output\\State.json"), State.class);
+        System.out.println(load);
+
+
+//        root.hash = root.hashCode();
+////        solver.solve(root, 2);
+
 //        solver.table.add(root);
-        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
+
+
+//        TableSerializable.serialize(solver.table, "C:\\JSON output\\StateTable1.dat");
+
         System.out.println("------------------------------------");
     }
 }

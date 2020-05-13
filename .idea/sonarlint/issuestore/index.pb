@@ -23,3 +23,7 @@ G
 src/main/util/Pair.java,2\2\223c282bfcc32b7770ccf1259f06fd4a306683f6
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+T
+$src/main/util/TableSerializable.java,6\f\6fd6cab93e0565579ff5e68c94260ccad5091542
+M
+src/main/logic/LogicData.java,6\3\63b34a7c4e4c4a71ef7b54ea7dfccf5d1533c75d

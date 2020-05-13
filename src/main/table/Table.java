@@ -1,19 +1,17 @@
 package main.table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import main.logic.State;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Table {
+public class Table implements Serializable {
     public HashMap<Integer, State> table = new HashMap<>();
 
     public void add(State state){
