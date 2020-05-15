@@ -1,8 +1,8 @@
 
-8squid:S1170"!Make this final field static too.(çšœ£
 ]squid:S1192@"FDefine a constant instead of duplicating this literal "right" 3 times.(¾Ó±ü
-ssquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(ş‘‹„8È¾§Å .
-isquid:S3776 "RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(°¼¼
 ‹"squid:ClassVariableVisibilityCheck
 "QMake board a static final constant or non-public and provide accessors if needed.(ææéŠşÿÿÿÿ8ÊÅ .
+ssquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(ş‘‹„8È¾§Å .
 ‚squid:S1149t"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(æø³øÿÿÿÿ8†¸ÌÅ .
+8squid:S1170"!Make this final field static too.(çšœ£
+isquid:S3776 "RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(°¼¼

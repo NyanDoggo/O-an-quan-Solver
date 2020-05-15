@@ -89,13 +89,28 @@ public class Main {
 
         Solver solver = new Solver();
         State root = new State(true);
-//        solver.solveBFS(root,5);
-//        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
+        solver.solveBFS(root,5);
+        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
 
-        saveToFile("C:\\JSON output\\State.json", root);
+        System.out.println(root);
+        System.out.println(root.hashCode());
+        System.out.println("---");
+        System.out.println(root.children.get(0));
+        System.out.println(root.children.get(0).hashCode());
+        State cat = new State(true);
+        System.out.println(cat.hashCode());
+        System.out.println("---");
+        Solver tmp = new Solver();
+        List<State> catState = tmp.getNextStates(cat);
+        System.out.println(catState.get(0));
+        System.out.println(catState.get(0).hashCode());
+        System.out.println(catState.get(1));
+        System.out.println(catState.get(1).hashCode());
 
-        State load = new ObjectMapper().readValue(new File("C:\\JSON output\\State.json"), State.class);
-        System.out.println(load);
+//        saveToFile("C:\\JSON output\\State.json", root);
+
+//        State load = new ObjectMapper().readValue(new File("C:\\JSON output\\State.json"), State.class);
+//        System.out.println(load);
 
 
 //        root.hash = root.hashCode();

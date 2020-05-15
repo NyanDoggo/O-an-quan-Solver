@@ -1,23 +1,23 @@
 
-psquid:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(é»ê¡
-nsquid:CommentedOutCodeLine_"<This block of commented-out lines of code should be removed.(´·º±ÿÿÿÿÿ8–¬ÝË .
-jsquid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(þ½Ë¸8ÊÓ—Ñž.
-osquid:CommentedOutCodeLineÝ"<This block of commented-out lines of code should be removed.(××È¯úÿÿÿÿ8¾±°ŠŸ.
-osquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(È¡®øÿÿÿÿ8¾±°ŠŸ.
-osquid:CommentedOutCodeLineÔ"<This block of commented-out lines of code should be removed.(è´õþÿÿÿÿ8¾±°ŠŸ.
-Qsquid:S1135¦"2Complete the task associated to this TODO comment.(ïŽÎ’8ÀƒßŠŸ.
-W
-squid:S106¢"9Replace this use of System.out or System.err by a logger.(îŒ„¬8ÊÓ—Ñž.
 jsquid:CommentedOutCodeLineã"<This block of commented-out lines of code should be removed.(¡Ú¡8¾±°ŠŸ.
-T
-squid:S106!"9Replace this use of System.out or System.err by a logger.(çÄÁ±ýÿÿÿÿ
-jsquid:CommentedOutCodeLineÖ"<This block of commented-out lines of code should be removed.(Â¿áÕ8¾±°ŠŸ.
-Žsquid:S1319C"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÅÑ¦¡8ü…“×“.
-Ksquid:S1172°",Remove this unused method parameter "depth".(éÂ•8 ›ôš .
-V
-squid:S106?"9Replace this use of System.out or System.err by a logger.(á¡º¨8Ï¹Åæ’.
-…"squid:ClassVariableVisibilityCheck"WMake firstPlayer a static final constant or non-public and provide accessors if needed.(¸°ìŸ
-‹"squid:ClassVariableVisibilityCheck"QMake table a static final constant or non-public and provide accessors if needed.(²Î°Äÿÿÿÿÿ8××†Ù“.
+†"squid:ClassVariableVisibilityCheck"XMake secondPlayer a static final constant or non-public and provide accessors if needed.(ÛõÖð
+Qsquid:S1135¦"2Complete the task associated to this TODO comment.(ïŽÎ’8ÀƒßŠŸ.
+jsquid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(þ½Ë¸8ÊÓ—Ñž.
 W
 squid:S106µ"9Replace this use of System.out or System.err by a logger.(ó¶ÎÕ8•ÓßË .
-†"squid:ClassVariableVisibilityCheck"XMake secondPlayer a static final constant or non-public and provide accessors if needed.(ÛõÖð
+psquid:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(é»ê¡
+osquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(È¡®øÿÿÿÿ8¾±°ŠŸ.
+Ksquid:S1172°",Remove this unused method parameter "depth".(éÂ•8 ›ôš .
+nsquid:CommentedOutCodeLine_"<This block of commented-out lines of code should be removed.(´·º±ÿÿÿÿÿ8–¬ÝË .
+osquid:CommentedOutCodeLineÝ"<This block of commented-out lines of code should be removed.(××È¯úÿÿÿÿ8¾±°ŠŸ.
+osquid:CommentedOutCodeLineÔ"<This block of commented-out lines of code should be removed.(è´õþÿÿÿÿ8¾±°ŠŸ.
+W
+squid:S106¢"9Replace this use of System.out or System.err by a logger.(îŒ„¬8ÊÓ—Ñž.
+…"squid:ClassVariableVisibilityCheck"WMake firstPlayer a static final constant or non-public and provide accessors if needed.(¸°ìŸ
+jsquid:CommentedOutCodeLineÖ"<This block of commented-out lines of code should be removed.(Â¿áÕ8¾±°ŠŸ.
+Žsquid:S1319C"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÅÑ¦¡8ü…“×“.
+‹"squid:ClassVariableVisibilityCheck"QMake table a static final constant or non-public and provide accessors if needed.(²Î°Äÿÿÿÿÿ8××†Ù“.
+T
+squid:S106!"9Replace this use of System.out or System.err by a logger.(çÄÁ±ýÿÿÿÿ
+V
+squid:S106?"9Replace this use of System.out or System.err by a logger.(á¡º¨8Ï¹Åæ’.

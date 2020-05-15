@@ -1,12 +1,16 @@
 package main.logic;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import main.pojo.Board;
 import main.pojo.Player;
 import main.pojo.Result;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,8 +18,8 @@ public class State implements Serializable {
     public Board board;
     @JsonIgnore
     public Logic logic;
-
-    public int hash;
+    public int qc;
+//    public int hash;
     public int rV; //realValue
     public int v;//value
     public Player p1;
@@ -56,11 +60,14 @@ public class State implements Serializable {
         this.isPrune = false;
         this.v = 0;
         this.rV = 0;
-        this.hash = this.hashCode();
+//        this.hash = this.hashCode();
         this.children = new ArrayList<>();
         this.cH = new ArrayList<>();
         this.pD = 0;
+        this.qc = this.logic.capturedQuanCounter;
     }
+
+
 
     State(Player p1, Player p2, boolean is1p, boolean isEnd, Logic logic){
         this.p1 = p1;
@@ -71,6 +78,7 @@ public class State implements Serializable {
         cH = new ArrayList<>();
         this.logic = logic;
         this.board = logic.board;
+        this.qc = logic.capturedQuanCounter;
     }
 
     State(State state){
@@ -80,7 +88,7 @@ public class State implements Serializable {
         this.isEnd = state.isEnd;
         this.p1v = state.p1v;
         this.p2v = state.p2v;
-        this.hash = state.hash;
+//        this.hash = state.hash;
         this.isPrune = state.isPrune;
         this.rV = state.rV;
         this.v = state.v;
@@ -88,6 +96,7 @@ public class State implements Serializable {
         this.cH = state.cH;
         this.logic = new Logic(state.logic);
         this.board = logic.board;
+        this.qc = this.logic.capturedQuanCounter;
     }
 
     public void prune(){
@@ -113,7 +122,7 @@ public class State implements Serializable {
 
     }
 
-    public void determineTrueValue(){
+    public void determineStateValue(){
         this.rV = this.p1.getCurrPts() - this.p2.getCurrPts();
     }
 
@@ -138,26 +147,34 @@ public class State implements Serializable {
     @Override
     public int hashCode() {
         int result = board != null ? board.hashCode() : 0;
-        result = 31 * result + hash;
-        result = 31 * result + rV;
-        result = 31 * result + v;
         result = 31 * result + (p1 != null ? p1.hashCode() : 0);
         result = 31 * result + (p2 != null ? p2.hashCode() : 0);
         result = 31 * result + (is1p ? 1 : 0);
         result = 31 * result + (isEnd ? 1 : 0);
-        result = 31 * result + (p1v != null ? p1v.hashCode() : 0);
-        result = 31 * result + (p2v != null ? p2v.hashCode() : 0);
-        result = 31 * result + pD;
-        result = 31 * result + (cH != null ? cH.hashCode() : 0);
-        result = 31 * result + (isPrune ? 1 : 0);
         return result;
     }
+
+    //    @Override
+//    public int hashCode() {
+//        int result = board != null ? board.hashCode() : 0;
+//        result = 31 * result + rV;
+//        result = 31 * result + v;
+//        result = 31 * result + (p1 != null ? p1.hashCode() : 0);
+//        result = 31 * result + (p2 != null ? p2.hashCode() : 0);
+//        result = 31 * result + (is1p ? 1 : 0);
+//        result = 31 * result + (isEnd ? 1 : 0);
+//        result = 31 * result + (p1v != null ? p1v.hashCode() : 0);
+//        result = 31 * result + (p2v != null ? p2v.hashCode() : 0);
+//        result = 31 * result + pD;
+//        result = 31 * result + (isPrune ? 1 : 0);
+//        return result;
+//    }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("State{");
         sb.append("board=").append(board);
-        sb.append(", hash=").append(hash);
+//        sb.append(", hash=").append(hash);
         sb.append(", rV=").append(rV);
         sb.append(", v=").append(v);
         sb.append(", p1=").append(p1);

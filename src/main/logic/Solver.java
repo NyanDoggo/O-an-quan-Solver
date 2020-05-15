@@ -1,11 +1,14 @@
 package main.logic;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import main.pojo.Board;
 import main.pojo.Player;
 import main.pojo.Result;
 import main.table.Table;
 import main.util.Pair;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class Solver {
@@ -103,11 +106,11 @@ public class Solver {
                 p2Copy.setCurrPts(points);
             }
             State child = new State(p1Copy, p2Copy, isFirstPlayerTurn, logic.isEnd(), logic);
-            child.determineTrueValue();
-            child.hash = child.hashCode();
+            child.determineStateValue();
             resolveGameValue(logic, child);
             children.add(child);
             logic = new Logic(copy);
+//            child.hash = child.hashCode();
         }
         return children;
     }
@@ -173,13 +176,19 @@ public class Solver {
         }
     }
 
-    public void solveBFS(State root, int depth){
+    public static void saveQueue(String filePath, List<State> tmp) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File(filePath), tmp);
+    }
+
+    public void solveBFS(State root, int depth) throws IOException {
         List<State> queue = new LinkedList<>();
         queue.add(root);
+
         while(!queue.isEmpty()){
             State currState = queue.get(0);
-            System.out.println(currState);
-            if (currState.pD == 6){
+            if (currState.pD == 3){
+                saveQueue("C:\\JSON output\\Queue.json", queue);
                 return;
             }
             if (!currState.isEnd && !this.table.exists(queue.get(0)) && !currState.isPrune){
@@ -190,19 +199,23 @@ public class Solver {
                 currState.setChildren(children);
                 currState.hashChildren();
                 queue.addAll(children);
+
             }
             if (!currState.isPrune){
                 table.add(currState);
+//                currState.hash = currState.hashCode();
             }
             queue.remove(0);
             trackingProgress(10000);
+            if (queue.size() >= 100000){
+                System.out.println("queue size > 100000");
+                return;
+            }
         }
     }
 
     public Pair solve(State root, int count){
         if (count == 1){
-//            printFirstLiniage(root);
-//            System.out.println("fak");
             return new Pair();
         }
         List<State> children = getNextStates(root);
