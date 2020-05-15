@@ -110,7 +110,6 @@ public class Solver {
             resolveGameValue(logic, child);
             children.add(child);
             logic = new Logic(copy);
-//            child.hash = child.hashCode();
         }
         return children;
     }
@@ -203,7 +202,7 @@ public class Solver {
             }
             if (!currState.isPrune){
                 table.add(currState);
-//                currState.hash = currState.hashCode();
+                currState.hash = currState.hashCode();
             }
             queue.remove(0);
             trackingProgress(10000);

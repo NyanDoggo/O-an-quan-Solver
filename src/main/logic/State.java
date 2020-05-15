@@ -19,7 +19,7 @@ public class State implements Serializable {
     @JsonIgnore
     public Logic logic;
     public int qc;
-//    public int hash;
+    public int hash;
     public int rV; //realValue
     public int v;//value
     public Player p1;
@@ -60,7 +60,7 @@ public class State implements Serializable {
         this.isPrune = false;
         this.v = 0;
         this.rV = 0;
-//        this.hash = this.hashCode();
+        this.hash = this.hashCode();
         this.children = new ArrayList<>();
         this.cH = new ArrayList<>();
         this.pD = 0;
@@ -88,7 +88,7 @@ public class State implements Serializable {
         this.isEnd = state.isEnd;
         this.p1v = state.p1v;
         this.p2v = state.p2v;
-//        this.hash = state.hash;
+        this.hash = state.hash;
         this.isPrune = state.isPrune;
         this.rV = state.rV;
         this.v = state.v;
@@ -174,7 +174,7 @@ public class State implements Serializable {
     public String toString() {
         final StringBuilder sb = new StringBuilder("State{");
         sb.append("board=").append(board);
-//        sb.append(", hash=").append(hash);
+        sb.append(", hash=").append(hash);
         sb.append(", rV=").append(rV);
         sb.append(", v=").append(v);
         sb.append(", p1=").append(p1);
