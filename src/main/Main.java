@@ -1,5 +1,6 @@
 package main;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.logic.Logic;
 import main.logic.LogicData;
@@ -84,42 +85,29 @@ public class Main {
         mapper.writeValue(new File(filePath), tmp);
     }
 
+    public static void stateReinit(State state){
+        state.board.tileList.get(0).isQuan = true;
+        state.board.tileList.get(6).isQuan = true;
+        state.logic = new Logic(state.board, state.qc);
+    }
+
     public static void main(String[] args) throws IOException {
 //        testFirstLevel();
 
         Solver solver = new Solver();
         State root = new State(true);
-        solver.solveBFS(root,5);
-        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
+//        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
+        List<State> queueRead = new ObjectMapper().readValue(new File("C:\\JSON output\\Queue.json"), new TypeReference<List<State>>(){});
 
-        System.out.println(root);
-        System.out.println(root.hashCode());
-        System.out.println("---");
-        System.out.println(root.children.get(0));
-        System.out.println(root.children.get(0).hashCode());
-        State cat = new State(true);
-        System.out.println(cat.hashCode());
-        System.out.println("---");
-        Solver tmp = new Solver();
-        List<State> catState = tmp.getNextStates(cat);
-        System.out.println(catState.get(0));
-        System.out.println(catState.get(0).hashCode());
-        System.out.println(catState.get(1));
-        System.out.println(catState.get(1).hashCode());
+        for (State s : queueRead){
+            stateReinit(s);
+        }
 
+        solver.solveBFS(queueRead);
 //        saveToFile("C:\\JSON output\\State.json", root);
 
 //        State load = new ObjectMapper().readValue(new File("C:\\JSON output\\State.json"), State.class);
 //        System.out.println(load);
-
-
-//        root.hash = root.hashCode();
-////        solver.solve(root, 2);
-
-//        solver.table.add(root);
-
-
-//        TableSerializable.serialize(solver.table, "C:\\JSON output\\StateTable1.dat");
 
         System.out.println("------------------------------------");
     }

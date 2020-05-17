@@ -68,7 +68,8 @@ public class Solver {
     }
 
     public ArrayList<Move> getPossibleMoves(State state){
-        Logic logic = state.logic;
+        Logic logic = new Logic(state.logic);
+
         ArrayList<Move> moveList = new ArrayList<Move>();
         if (state.is1p){
             for (int i = 1; i <= 5; i++){
@@ -80,6 +81,7 @@ public class Solver {
             }
         }else {
             for (int i = 7; i <= 11; i++){
+                System.out.println(logic.getBoard().tileList.size());
                 int numberOfStones = logic.getBoard().tileList.get(i).a;
                 if (numberOfStones > 0){
                     moveList.add(new Move("left", i));
@@ -180,16 +182,25 @@ public class Solver {
         mapper.writeValue(new File(filePath), tmp);
     }
 
-    public void solveBFS(State root, int depth) throws IOException {
+    public void solveFromRoot(State root) throws IOException {
         List<State> queue = new LinkedList<>();
         queue.add(root);
+        solveBFS(queue);
+    }
 
+    //BUG: queue only has root, children are added to queue to Save, but doesnt print queue because queue to save < 1M
+    public void solveBFS(List<State> queue) throws IOException {
+//        List<State> queue = new LinkedList<>();
+//        queue.add(root);
+        List<State> queueToSave = new LinkedList<>();
         while(!queue.isEmpty()){
             State currState = queue.get(0);
-            if (currState.pD == 3){
-                saveQueue("C:\\JSON output\\Queue.json", queue);
-                return;
-            }
+            System.out.println(currState);
+            System.out.println(currState.board.tileList.size());
+//            if (currState.pD == 3){
+//
+//                return;
+//            }
             if (!currState.isEnd && !this.table.exists(queue.get(0)) && !currState.isPrune){
                 List<State> children = getNextStates(currState);
                 for (State s : children){
@@ -197,8 +208,7 @@ public class Solver {
                 }
                 currState.setChildren(children);
                 currState.hashChildren();
-                queue.addAll(children);
-
+                queueToSave.addAll(children);
             }
             if (!currState.isPrune){
                 table.add(currState);
@@ -206,11 +216,16 @@ public class Solver {
             }
             queue.remove(0);
             trackingProgress(10000);
-            if (queue.size() >= 100000){
-                System.out.println("queue size > 100000");
+            if (queueToSave.size() >= 200000){
+                System.out.println("queueToSave size > 200000, saving queueToSave");
+                saveQueue("C:\\JSON output\\QueueToSave.json", queueToSave);
+                System.out.println("Saving remaining input queue");
+                saveQueue("C:\\JSON output\\Queue.json", queue);
                 return;
             }
         }
+        System.out.println("Input Queue empty, saving queueToSave with size " + queueToSave.size());
+        saveQueue("C:\\JSON output\\QueueToSave.json", queueToSave);
     }
 
     public Pair solve(State root, int count){

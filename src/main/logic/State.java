@@ -37,6 +37,7 @@ public class State implements Serializable {
     public void hashChildren(){
         for (State s : this.children){
             this.cH.add(s.hashCode());
+            s.hash = s.hashCode();
         }
     }
 
@@ -94,7 +95,7 @@ public class State implements Serializable {
         this.v = state.v;
         this.children = state.children;
         this.cH = state.cH;
-        this.logic = new Logic(state.logic);
+        this.logic = new Logic(state.board, state.qc);
         this.board = logic.board;
         this.qc = this.logic.capturedQuanCounter;
     }
