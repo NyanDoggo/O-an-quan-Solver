@@ -11,7 +11,9 @@ import main.table.Table;
 import main.util.TableSerializable;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     //TODO: Search the game tree
@@ -91,24 +93,30 @@ public class Main {
         state.logic = new Logic(state.board, state.qc);
     }
 
-    public static void main(String[] args) throws IOException {
-//        testFirstLevel();
-
+    public static void combineTable() throws IOException {
         Solver solver = new Solver();
-        State root = new State(true);
-//        solver.table.saveToFile("C:\\JSON output\\StateTable.json");
-        List<State> queueRead = new ObjectMapper().readValue(new File("C:\\JSON output\\Queue.json"), new TypeReference<List<State>>(){});
+        int size = 0;
+        for (int i = 0; i <= 25; i++){
+            if (i != 3){
+                String filePath = "C:\\JSON output\\StateTable" + i + ".json";
+                Table table = new ObjectMapper().readValue(new File(filePath), Table.class);
+                System.out.println(table.table.size());
+                size += table.table.size();
+                solver.table.table.putAll(table.table);
+            }
+        }
+        System.out.println("Total size: " + size);
+        System.out.println("Final Table Size: " + solver.table.table.size());
+        solver.table.saveToFile("C:\\JSON output\\CombinedTable.json");
+    }
 
+    public static void main(String[] args) throws IOException { ;
+        Solver solver = new Solver();
+        List<State> queueRead = new ObjectMapper().readValue(new File("C:\\JSON output\\Queue.json"), new TypeReference<List<State>>(){});
         for (State s : queueRead){
             stateReinit(s);
         }
-
         solver.solveBFS(queueRead);
-//        saveToFile("C:\\JSON output\\State.json", root);
-
-//        State load = new ObjectMapper().readValue(new File("C:\\JSON output\\State.json"), State.class);
-//        System.out.println(load);
-
         System.out.println("------------------------------------");
     }
 }

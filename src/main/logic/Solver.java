@@ -81,7 +81,6 @@ public class Solver {
             }
         }else {
             for (int i = 7; i <= 11; i++){
-                System.out.println(logic.getBoard().tileList.size());
                 int numberOfStones = logic.getBoard().tileList.get(i).a;
                 if (numberOfStones > 0){
                     moveList.add(new Move("left", i));
@@ -193,14 +192,13 @@ public class Solver {
 //        List<State> queue = new LinkedList<>();
 //        queue.add(root);
         List<State> queueToSave = new LinkedList<>();
-        while(!queue.isEmpty()){
+        while(!queue.isEmpty() && queueToSave.size() <= 100000){
+            if (queue.isEmpty()){
+                System.out.println("Input queue empty, loading queueToSave");
+                queue.addAll(queueToSave);
+                queueToSave = new LinkedList<>();
+            }
             State currState = queue.get(0);
-            System.out.println(currState);
-            System.out.println(currState.board.tileList.size());
-//            if (currState.pD == 3){
-//
-//                return;
-//            }
             if (!currState.isEnd && !this.table.exists(queue.get(0)) && !currState.isPrune){
                 List<State> children = getNextStates(currState);
                 for (State s : children){
@@ -221,11 +219,15 @@ public class Solver {
                 saveQueue("C:\\JSON output\\QueueToSave.json", queueToSave);
                 System.out.println("Saving remaining input queue");
                 saveQueue("C:\\JSON output\\Queue.json", queue);
+                System.out.println("Saving Table");
+                this.table.saveToFile("C:\\JSON output\\StateTable.json");
                 return;
             }
         }
-        System.out.println("Input Queue empty, saving queueToSave with size " + queueToSave.size());
+        System.out.println("Input Queue empty and queueToSave is too large, saving queueToSave with size " + queueToSave.size());
         saveQueue("C:\\JSON output\\QueueToSave.json", queueToSave);
+        System.out.println("Saving Table");
+        this.table.saveToFile("C:\\JSON output\\StateTable.json");
     }
 
     public Pair solve(State root, int count){
