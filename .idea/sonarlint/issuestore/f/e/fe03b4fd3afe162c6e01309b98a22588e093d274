@@ -1,34 +1,40 @@
 
-]squid:S1854Z":Remove this useless assignment to local variable "solver".(¥˜ä—üÿÿÿÿ8åÔêÌ .
-€squid:S1192;"]Define a constant instead of duplicating this literal "----------------------------" 3 times.(şæ£ñşÿÿÿÿ8„šä™.
 V
-squid:S106."9Replace this use of System.out or System.err by a logger.(‡Øš°8ŞÓ—Ñ.
-^squid:S1075a"ARefactor your code to get this URI from a customizable parameter.(ğŒ“?8ü®éÌ .
+squid:S1062"9Replace this use of System.out or System.err by a logger.(‡Øš°8ŞÓ—Ñ.
 U
-squid:S106m"9Replace this use of System.out or System.err by a logger.(¥ÖC8Ïá†Æ .
-nsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(©üüĞÿÿÿÿÿ8§€äË .
-Psquid:S1135"2Complete the task associated to this TODO comment.(ƒ®•‚8„šä™.
+squid:S1064"9Replace this use of System.out or System.err by a logger.(¿ë˜8„šä™.
+osquid:CommentedOutCodeLineŠ"<This block of commented-out lines of code should be removed.(Ò¢»ëúÿÿÿÿ8«…ö¢.
+_squid:S1075s"ARefactor your code to get this URI from a customizable parameter.(Ò±¥Á8Ä†îâ¢.
+€squid:S1192?"]Define a constant instead of duplicating this literal "----------------------------" 3 times.(şæ£ñşÿÿÿÿ8„šä™.
+osquid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(æ¡ ·ûÿÿÿÿ8›·µ”£.
+jsquid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(å¤Öµ8Õ—…”£.
 V
-squid:S1064"9Replace this use of System.out or System.err by a logger.(£Ëº8„šä™.
-[
-squid:S106&"9Replace this use of System.out or System.err by a logger.(ÉÅ˜şÿÿÿÿ8„šä™.
-Nsquid:S1481Z"+Remove this unused "solver" local variable.(¥˜ä—üÿÿÿÿ8åÔêÌ .
-[
-squid:S106?"9Replace this use of System.out or System.err by a logger.(ÁáåÊıÿÿÿÿ8ŞÓ—Ñ.
-isquid:CommentedOutCodeLine\"<This block of commented-out lines of code should be removed.(óÅÊÂ8åÔêÌ .
-nsquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(Ù½¿áıÿÿÿÿ8ˆ–ÒØ“.
-nsquid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(½€Œõüÿÿÿÿ8„šä™.
-[
-squid:S106A"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8ô²Ó×“.
-[
-squid:S106;"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
-[
-squid:S106>"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
-U
-squid:S1060"9Replace this use of System.out or System.err by a logger.(¿ë˜8„šä™.
-isquid:CommentedOutCodeLinek"<This block of commented-out lines of code should be removed.(‡¸ÂŠ8•ŞÖš .
-\squid:UselessImportCheck"1Remove this unused import 'main.logic.LogicData'.(ËƒÜİ8Ÿ€êÌ .
-nsquid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.( ¹ëÑüÿÿÿÿ8„šä™.
-isquid:CommentedOutCodeLinee"<This block of commented-out lines of code should be removed.(µšóŒ8šËãË .
+squid:S1068"9Replace this use of System.out or System.err by a logger.(£Ëº8„šä™.
+Psquid:S1135"2Complete the task associated to this TODO comment.(ƒ®•‚8„šä™.
 V
-squid:S106b"9Replace this use of System.out or System.err by a logger.(½®µ¢8¬¥›ñ .
+squid:S106l"9Replace this use of System.out or System.err by a logger.(²ã¼é8¨òÏ™¢.
+[
+squid:S106?"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
+nsquid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.( ¹ëÑüÿÿÿÿ8„šä™.
+hsquid:UselessImportCheck"8Remove this unused import 'main.util.TableSerializable'.( ºŠÈÿÿÿÿÿ8Ïñ‰ı¡.
+osquid:CommentedOutCodeLine˜"<This block of commented-out lines of code should be removed.(ÍãµÀøÿÿÿÿ8Õ—…”£.
+[
+squid:S106*"9Replace this use of System.out or System.err by a logger.(ÉÅ˜şÿÿÿÿ8„šä™.
+nsquid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(Ò¢»ëúÿÿÿÿ8î†”£.
+\squid:UselessImportCheck"1Remove this unused import 'main.logic.LogicData'.(ËƒÜİ8Ÿ€êÌ .
+V
+squid:S106k"9Replace this use of System.out or System.err by a logger.(ÙÖ®8¨òÏ™¢.
+\
+squid:S106£"9Replace this use of System.out or System.err by a logger.(ç‘ë®üÿÿÿÿ8åÑúÊ¢.
+[
+squid:S106B"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8„šä™.
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(«”ŸË8ÅĞÿõ¢.
+nsquid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(Ù½¿áıÿÿÿÿ8ˆ–ÒØ“.
+[
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ÁáåÊıÿÿÿÿ8ŞÓ—Ñ.
+[
+squid:S106g"9Replace this use of System.out or System.err by a logger.(üúüÀüÿÿÿÿ8¨òÏ™¢.
+^squid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8¸À™¢.
+[
+squid:S106E"9Replace this use of System.out or System.err by a logger.(şæ£ñşÿÿÿÿ8ô²Ó×“.

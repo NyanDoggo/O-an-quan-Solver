@@ -14,6 +14,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
     //TODO: Search the game tree
@@ -96,27 +97,96 @@ public class Main {
     public static void combineTable() throws IOException {
         Solver solver = new Solver();
         int size = 0;
-        for (int i = 0; i <= 25; i++){
-            if (i != 3){
+        for (int i = 1; i <= 8; i++){
                 String filePath = "C:\\JSON output\\StateTable" + i + ".json";
                 Table table = new ObjectMapper().readValue(new File(filePath), Table.class);
                 System.out.println(table.table.size());
                 size += table.table.size();
                 solver.table.table.putAll(table.table);
-            }
         }
         System.out.println("Total size: " + size);
         System.out.println("Final Table Size: " + solver.table.table.size());
         solver.table.saveToFile("C:\\JSON output\\CombinedTable.json");
     }
 
-    public static void main(String[] args) throws IOException { ;
+    public static void solveWrapper() throws IOException {
         Solver solver = new Solver();
+
         List<State> queueRead = new ObjectMapper().readValue(new File("C:\\JSON output\\Queue.json"), new TypeReference<List<State>>(){});
+//        Table table = new ObjectMapper().readValue(new File("C:\\JSON output\\StateTable.json"), Table.class);
         for (State s : queueRead){
             stateReinit(s);
         }
-        solver.solveBFS(queueRead);
-        System.out.println("------------------------------------");
+        solver.solveBFS(queueRead, new Table());
+    }
+
+    public static void fillChildrenHash(Table table){
+        Solver solver = new Solver();
+        for (HashMap.Entry<Integer, State> entry : table.table.entrySet()){
+            State tmp = entry.getValue();
+            Integer tmpHash = tmp.hash;
+            if (tmp.cH.isEmpty() && !tmp.isEnd){
+
+                stateReinit(tmp);
+                System.out.println(tmp);
+                List<State> entryChildren = solver.getNextStates(tmp);
+                tmp.setChildren(entryChildren);
+                tmp.hashChildren();
+                table.table.replace(tmpHash, tmp);
+            }
+        }
+    }
+
+    public static State getStateFromTable(Integer key, Table table){
+        if (table.table.containsKey(key)){
+            return table.table.get(key);
+        }else{
+            System.out.println("Doesnt contain key");
+        }
+        return null;
+    }
+
+    public static void main(String[] args) throws IOException {
+//        solveWrapper();
+
+
+
+
+        Solver solver = new Solver();
+//        solver.solveFromRoot(new State(true));
+
+
+
+
+
+        Table table = new ObjectMapper().readValue(new File("C:\\JSON output\\StateTable.json"), Table.class);
+//        System.out.println(getStateFromTable(root.hashCode(), table));
+//        System.out.println(root);
+//        root.logic.makeMove(3, "right");
+//        System.out.println(root);
+//        System.out.println(root.hashCode());
+//        root.logic.makeMove(1, "right");
+//        System.out.println(root);
+//        System.out.println(root.hashCode());
+//        combineTable();
+
+        fillChildrenHash(table);
+        table.saveToFile("C:\\JSON output\\StateTable.json");
+
+//        System.out.println(root.hashCode());
+//        Scanner sc = new Scanner(System.in);
+//
+//        do {
+//            System.out.println("Input Start");
+//            int tileIndex = Integer.parseInt(sc.nextLine());
+//            System.out.println(tileIndex);
+//            String direction = sc.nextLine();
+//            System.out.println(direction);
+//            root.logic.makeMove(tileIndex, direction);
+//            System.out.println(root.hashCode());
+////            System.out.println(getStateFromTable(root.hashCode(), table));
+//            System.out.println("Exit?");
+//        }while(!sc.nextLine().equalsIgnoreCase("exit"));
+        System.out.println("-------------------------------");
     }
 }

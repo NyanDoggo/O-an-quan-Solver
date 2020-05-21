@@ -1,16 +1,11 @@
 package main.logic;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import main.pojo.Board;
 import main.pojo.Player;
 import main.pojo.Result;
-
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -145,6 +140,8 @@ public class State implements Serializable {
         return Objects.equals(children, state.children);
     }
 
+
+    //Board, player(currentPoints), isEndState, isFirstPlayer is counted in hash
     @Override
     public int hashCode() {
         int result = board != null ? board.hashCode() : 0;

@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="653b00a9-1f8c-46bb-b212-20bee06f3579" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05a1a8f20f8a37d3f332a2433bfa8f1ae4420b19" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05a1a8f20f8a37d3f332a2433bfa8f1ae4420b19" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/252ba46813500c79f5b09eb0addec43b4ae51880" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/252ba46813500c79f5b09eb0addec43b4ae51880" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/53d26667542d94314a07ef6e942330f193b9d2fc" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/53d26667542d94314a07ef6e942330f193b9d2fc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6fd6cab93e0565579ff5e68c94260ccad5091542" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6fd6cab93e0565579ff5e68c94260ccad5091542" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/75a660f4b975d14966354b60f4e35dabfef45780" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/75a660f4b975d14966354b60f4e35dabfef45780" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebf600c2e94a6158ba8254a733f02a3a7a1130e9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebf600c2e94a6158ba8254a733f02a3a7a1130e9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe03b4fd3afe162c6e01309b98a22588e093d274" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe03b4fd3afe162c6e01309b98a22588e093d274" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/logic/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/logic/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/logic/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/logic/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/logic/State.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +156,12 @@
       <workItem from="1589193826551" duration="1076000" />
       <workItem from="1589280931936" duration="7903000" />
       <workItem from="1589375053112" duration="3495000" />
-      <workItem from="1589548165971" duration="23487000" />
+      <workItem from="1589548165971" duration="41338000" />
+      <workItem from="1589915211862" duration="1569000" />
+      <workItem from="1589920838000" duration="1642000" />
+      <workItem from="1589972412217" duration="3758000" />
+      <workItem from="1589986614612" duration="1892000" />
+      <workItem from="1590013842079" duration="7517000" />
     </task>
     <servers />
   </component>
@@ -153,6 +169,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="72" key="#Auto_Import" timestamp="1589921533947">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="72" key="#Auto_Import/0.0.1536.824@0.0.1536.824" timestamp="1589921533947" />
     <state x="361" y="72" key="#Project_Structure" timestamp="1587129827890">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -177,22 +197,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588467569159" />
-    <state width="1493" height="190" key="GridCell.Tab.0.bottom" timestamp="1589728393318">
+    <state width="1493" height="149" key="GridCell.Tab.0.bottom" timestamp="1590097698786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="190" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589728393318" />
-    <state width="1493" height="190" key="GridCell.Tab.0.center" timestamp="1589728393318">
+    <state width="1493" height="149" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590097698786" />
+    <state width="1493" height="149" key="GridCell.Tab.0.center" timestamp="1590097698786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="190" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589728393318" />
-    <state width="1493" height="190" key="GridCell.Tab.0.left" timestamp="1589728393317">
+    <state width="1493" height="149" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590097698786" />
+    <state width="1493" height="149" key="GridCell.Tab.0.left" timestamp="1590097698785">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="190" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589728393317" />
-    <state width="1493" height="190" key="GridCell.Tab.0.right" timestamp="1589728393318">
+    <state width="1493" height="149" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590097698785" />
+    <state width="1493" height="149" key="GridCell.Tab.0.right" timestamp="1590097698786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="190" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589728393318" />
+    <state width="1493" height="149" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590097698786" />
     <state width="1493" height="136" key="GridCell.Tab.1.bottom" timestamp="1589315244654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -229,17 +249,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="540" y="116" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1585751268048" />
-    <state x="209" y="34" key="new project wizard" timestamp="1586352215638">
+    <state x="209" y="34" key="new project wizard" timestamp="1589917582896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1586352215638" />
+    <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1589917582896" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1589296831899">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1589296831899" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589718028835">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589915286915">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589718028835" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589915286915" />
   </component>
 </project>

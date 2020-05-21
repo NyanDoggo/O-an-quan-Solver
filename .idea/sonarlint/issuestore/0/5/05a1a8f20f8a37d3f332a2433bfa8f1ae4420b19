@@ -1,28 +1,30 @@
 
-‰"squid:ClassVariableVisibilityCheck"OMake p2v a static final constant or non-public and provide accessors if needed.(ÃªÄÊøÿÿÿÿ8ĞÓ—Ñ.
-Hsquid:S1948"%Make "children" private or transient.(Æ»È›úÿÿÿÿ8³ü™°Ÿ.
+ˆ"squid:ClassVariableVisibilityCheck"NMake qc a static final constant or non-public and provide accessors if needed.( ¤÷Šüÿÿÿÿ8ş»­Ğ¡.
+Hsquid:S1948"%Make "children" private or transient.(Æ»È›úÿÿÿÿ8³ü™°Ÿ.
+‹"squid:ClassVariableVisibilityCheck"QMake board a static final constant or non-public and provide accessors if needed.(ææéŠşÿÿÿÿ8¢ÈË .
+=squid:S1948"Make "cH" private or transient.(ÎÄ‡8õÿ‰› .
+Bsquid:S1948"$Make "p1" transient or serializable.(¹Äüè8³ü™°Ÿ.
 [
-squid:S106k"9Replace this use of System.out or System.err by a logger.(ê”Œ¢ÿÿÿÿÿ8ĞÓ—Ñ.
-…"squid:ClassVariableVisibilityCheck"PMake is1p a static final constant or non-public and provide accessors if needed.(åñ¢İ8ĞÓ—Ñ.
-ˆ"squid:ClassVariableVisibilityCheck"NMake pD a static final constant or non-public and provide accessors if needed.(ä¦İ’ûÿÿÿÿ8åõŠ› .
-ˆ"squid:ClassVariableVisibilityCheck"NMake rV a static final constant or non-public and provide accessors if needed.(ÒÀ©Âıÿÿÿÿ8­¡‡› .
-‚"squid:ClassVariableVisibilityCheck"NMake p2 a static final constant or non-public and provide accessors if needed.(äŒ°K8ĞÓ—Ñ.
-Asquid:S1948"$Make "p2" transient or serializable.(äŒ°K8³ü™°Ÿ.
-‚"squid:ClassVariableVisibilityCheck"MMake v a static final constant or non-public and provide accessors if needed.(ÊİºÏ8“×‡› .
-Esquid:S1948"'Make "logic" transient or serializable.(ìÌŸÛ8³ü™°Ÿ.
-jsquid:CommentedOutCodeLine¿"<This block of commented-out lines of code should be removed.(†í³½8²ôÉÅ .
-Bsquid:S1948"$Make "p1" transient or serializable.(¹Äüè8³ü™°Ÿ.
-ƒ"squid:ClassVariableVisibilityCheck"NMake p1 a static final constant or non-public and provide accessors if needed.(¹Äüè8ĞÓ—Ñ.
-‹"squid:ClassVariableVisibilityCheck"QMake board a static final constant or non-public and provide accessors if needed.(ææéŠşÿÿÿÿ8¢ÈË .
-osquid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(òß¿•üÿÿÿÿ8²ôÉÅ .
+squid:S106p"9Replace this use of System.out or System.err by a logger.(ê”Œ¢ÿÿÿÿÿ8ĞÓ—Ñ.
+ˆ"squid:ClassVariableVisibilityCheck"NMake rV a static final constant or non-public and provide accessors if needed.(ÒÀ©Âıÿÿÿÿ8­¡‡› .
+ˆ"squid:ClassVariableVisibilityCheck"NMake pD a static final constant or non-public and provide accessors if needed.(ä¦İ’ûÿÿÿÿ8åõŠ› .
+‚"squid:ClassVariableVisibilityCheck"NMake p2 a static final constant or non-public and provide accessors if needed.(äŒ°K8ĞÓ—Ñ.
+‰"squid:ClassVariableVisibilityCheck"OMake p2v a static final constant or non-public and provide accessors if needed.(ÃªÄÊøÿÿÿÿ8ĞÓ—Ñ.
+ƒ"squid:ClassVariableVisibilityCheck"NMake cH a static final constant or non-public and provide accessors if needed.(ÎÄ‡8õÿ‰› .
+Š"squid:ClassVariableVisibilityCheck"PMake hash a static final constant or non-public and provide accessors if needed.(ß’ü¯ûÿÿÿÿ8»ÚÆĞ¡.
+Esquid:S1948"'Make "logic" transient or serializable.(ìÌŸÛ8³ü™°Ÿ.
+ƒ"squid:ClassVariableVisibilityCheck"NMake p1 a static final constant or non-public and provide accessors if needed.(¹Äüè8ĞÓ—Ñ.
+osquid:CommentedOutCodeLineÀ"<This block of commented-out lines of code should be removed.(òß¿•üÿÿÿÿ8²ôÉÅ .
+Jsquid:S1948"'Make "board" transient or serializable.(ææéŠşÿÿÿÿ8¢ÈË .
+jsquid:CommentedOutCodeLineœ"<This block of commented-out lines of code should be removed.(İ ’ì8ÁË²Æ¡.
+…"squid:ClassVariableVisibilityCheck"PMake is1p a static final constant or non-public and provide accessors if needed.(åñ¢İ8ĞÓ—Ñ.
+[
+squid:S106o"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8ÕŠóæ™.
+jsquid:CommentedOutCodeLineÎ"<This block of commented-out lines of code should be removed.(†í³½8²ôÉÅ .
+„"squid:ClassVariableVisibilityCheck"OMake p1v a static final constant or non-public and provide accessors if needed.(ôÌš„8ĞÓ—Ñ.
+"squid:ClassVariableVisibilityCheck"SMake isPrune a static final constant or non-public and provide accessors if needed.(—”™úÿÿÿÿ8¬¹£‰Ÿ.
+Asquid:S1948"$Make "p2" transient or serializable.(äŒ°K8³ü™°Ÿ.
+‹"squid:ClassVariableVisibilityCheck"QMake isEnd a static final constant or non-public and provide accessors if needed.(É¨ùÿÿÿÿ8ĞÓ—Ñ.
 V
-squid:S106l"9Replace this use of System.out or System.err by a logger.(Âµ…8Ùƒ£¼™.
-"squid:ClassVariableVisibilityCheck"SMake isPrune a static final constant or non-public and provide accessors if needed.(—”™úÿÿÿÿ8¬¹£‰Ÿ.
-‹"squid:ClassVariableVisibilityCheck"QMake isEnd a static final constant or non-public and provide accessors if needed.(É¨ùÿÿÿÿ8ĞÓ—Ñ.
-Jsquid:S1948"'Make "board" transient or serializable.(ææéŠşÿÿÿÿ8¢ÈË .
-=squid:S1948"Make "cH" private or transient.(ÎÄ‡8õÿ‰› .
-Š"squid:ClassVariableVisibilityCheck"PMake hash a static final constant or non-public and provide accessors if needed.(ß’ü¯ûÿÿÿÿ8ÎÑÚÒ.
-„"squid:ClassVariableVisibilityCheck"OMake p1v a static final constant or non-public and provide accessors if needed.(ôÌš„8ĞÓ—Ñ.
-ƒ"squid:ClassVariableVisibilityCheck"NMake cH a static final constant or non-public and provide accessors if needed.(ÎÄ‡8õÿ‰› .
-[
-squid:S106j"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8ÕŠóæ™.
+squid:S106q"9Replace this use of System.out or System.err by a logger.(Âµ…8Ùƒ£¼™.
+‚"squid:ClassVariableVisibilityCheck"MMake v a static final constant or non-public and provide accessors if needed.(ÊİºÏ8“×‡› .

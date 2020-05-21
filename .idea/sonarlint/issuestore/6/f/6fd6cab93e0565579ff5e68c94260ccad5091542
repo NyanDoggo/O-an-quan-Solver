@@ -1,6 +1,6 @@
 
-Xsquid:S1118":Add a private constructor to hide the implicit public one.(É”ç¹8îé£°Ÿ.
-rsquid:S2095"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(åµ©üÿÿÿÿ8ú¾«°Ÿ.
 nsquid:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(õ¬ó­8ç§°Ÿ.
 Xsquid:UselessImportCheck"-Remove this unused import 'main.logic.State'.(˜ÑÉ8ï…°Ÿ.
+Xsquid:S1118":Add a private constructor to hide the implicit public one.(É”ç¹8îé£°Ÿ.
 Isquid:S1172"+Remove this unused method parameter "data".(ùØ£ª8ú¾«°Ÿ.
+rsquid:S2095"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(åµ©üÿÿÿÿ8ú¾«°Ÿ.

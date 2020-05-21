@@ -1,25 +1,25 @@
 
-[
-squid:S106Z"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ðŸËæ’.
-O
-squid:S106_"9Replace this use of System.out or System.err by a logger.(Íˆó¢
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¹É˜å8×ÂÄ .
-asquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(à»Þ	
-T
-squid:S106O"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
-O
-squid:S106V"9Replace this use of System.out or System.err by a logger.(×•œ²
-V
-squid:S106b"9Replace this use of System.out or System.err by a logger.(×•œ²8äÓ—Ñž.
-V
-squid:S106d"9Replace this use of System.out or System.err by a logger.(Íˆó¢8ìƒ£¼™.
-ssquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„8ú¦ÂÄ .
-T
-squid:S106U"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­ÛòØúÿÿÿÿ8¨îÁÄ .
-T
-squid:S106a"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
 T
 squid:S106X"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ
+V
+squid:S106d"9Replace this use of System.out or System.err by a logger.(Íˆó¢8ìƒ£¼™.
+O
+squid:S106V"9Replace this use of System.out or System.err by a logger.(×•œ²
+T
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
+T
+squid:S106a"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+ssquid:UselessImportCheck"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„8ú¦ÂÄ .
+O
+squid:S106_"9Replace this use of System.out or System.err by a logger.(Íˆó¢
+[
+squid:S106Z"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ðŸËæ’.
+V
+squid:S106b"9Replace this use of System.out or System.err by a logger.(×•œ²8äÓ—Ñž.
 ‰"squid:ClassVariableVisibilityCheck
 "TMake tileList a static final constant or non-public and provide accessors if needed.(öÂœ8ú¦ÂÄ .
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­ÛòØúÿÿÿÿ8¨îÁÄ .
+asquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(à»Þ	
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¹É˜å8×ÂÄ .
+T
+squid:S106O"9Replace this use of System.out or System.err by a logger.(Äõ±Æýÿÿÿÿ

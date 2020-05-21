@@ -118,26 +118,58 @@ public class Solver {
     private void sowStones(State state){
         if (state.is1p){
             for (int i = 1; i <= 5; i++){
-                state.logic.board.tileList.get(i).a++;
+                if (state.p1.getCurrPts() > 0){
+                    state.logic.board.tileList.get(i).a++;
+                    state.p1.setCurrPts(state.p1.getCurrPts() - 1);
+                }else if (state.p2.getCurrPts() >= 5){
+                    state.logic.board.tileList.get(i).a++;
+                    state.p1.setCurrPts(state.p1.getCurrPts() - 1);
+                    state.p2.setCurrPts(state.p2.getCurrPts() - 1);
+                }
             }
-            state.p1.setCurrPts(state.p1.getCurrPts() - 5);
         }else{
             for (int i = 7; i <= 11; i++){
-                state.logic.board.tileList.get(i).a++;
+                if (state.p2.getCurrPts() > 0){
+                    state.logic.board.tileList.get(i).a++;
+                    state.p2.setCurrPts(state.p2.getCurrPts() - 1);
+                }else if (state.p1.getCurrPts() >= 5){
+                    state.logic.board.tileList.get(i).a++;
+                    state.p1.setCurrPts(state.p1.getCurrPts() - 1);
+                    state.p2.setCurrPts(state.p2.getCurrPts() - 1);
+                }
             }
-            state.p2.setCurrPts(state.p2.getCurrPts() - 5);
+        }
+    }
+
+    private void resolveNoStones(State state){
+        if (state.p1.getCurrPts() > state.p2.getCurrPts()){
+            state.p1v = Result.WIN;
+            state.p2v = Result.LOSE;
+        } else if (state.p1.getCurrPts() < state.p2.getCurrPts()){
+            state.p1v = Result.LOSE;
+            state.p2v = Result.WIN;
+        } else if (state.p1.getCurrPts() == state.p2.getCurrPts()){
+            state.p1v = Result.DRAW;
+            state.p2v = Result.DRAW;
+        } else{
+            System.out.println("wtf?");
         }
     }
 
     public List<State> getNextStates(State state){
         State copy = new State(state);
-        if (copy.logic.isEnd()){
+        if (copy.logic.isEnd() || state.isEnd){
             return new ArrayList<>();
         }
         ArrayList<Move> moveList = getPossibleMoves(state);
         if (moveList.isEmpty() && !state.isEnd){
             sowStones(state);
             moveList = getPossibleMoves(state);
+            if (moveList.isEmpty()){
+                state.isEnd = true;
+                resolveNoStones(state);
+                return new ArrayList<>();
+            }
         }
         List<State> children = buildLevel(state, moveList, copy.logic);
         copy.children = children;
@@ -147,18 +179,6 @@ public class Solver {
         }
         return children;
     }
-
-//    public void saveFileJson(String filePath) throws IOException {
-//        try{
-//            System.out.println(this.table);
-//            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-//            Writer writer = new FileWriter(filePath);
-//            gson.toJson(this.table, writer);
-//            writer.close();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
 
     private void trackingProgress(int printFrequency){
         if (table.table.size() % printFrequency == 0){
@@ -170,8 +190,8 @@ public class Solver {
     public void alphaBeta(State state){
         int p1 = state.p1.getCurrPts();
         int p2 = state.p2.getCurrPts();
-        int remainingStones = 70 - (p1 + p2);
-        if (p1 + remainingStones < p2){
+        int remainingPoints = 70 - (p1 + p2);
+        if (p1 + remainingPoints < p2){
             state.prune();
         }
     }
@@ -184,80 +204,101 @@ public class Solver {
     public void solveFromRoot(State root) throws IOException {
         List<State> queue = new LinkedList<>();
         queue.add(root);
-        solveBFS(queue);
+        solveBFS(queue, new Table());
     }
 
-    //BUG: queue only has root, children are added to queue to Save, but doesnt print queue because queue to save < 1M
-    public void solveBFS(List<State> queue) throws IOException {
+    //BUG:when queue to Save grows too large, the program will be terminated and the current leaft nodes in tree wont have children hash
+    public void solveBFS(List<State> queue, Table table) throws IOException {
 //        List<State> queue = new LinkedList<>();
 //        queue.add(root);
         List<State> queueToSave = new LinkedList<>();
-        while(!queue.isEmpty() && queueToSave.size() <= 100000){
+        this.table = table;
+//        System.out.println(this.table.table.size());
+        while(!queue.isEmpty() || queueToSave.size() <= 50000){
+            if (queue.isEmpty() && queueToSave.isEmpty()){
+                System.out.println("Both Queues are empty, check if there are no more States");
+                System.out.println("Saving Table");
+                this.table.saveToFile("C:\\JSON output\\StateTable.json");
+                return;
+            }
             if (queue.isEmpty()){
-                System.out.println("Input queue empty, loading queueToSave");
+//                System.out.println("Input queue empty, loading queueToSave");
                 queue.addAll(queueToSave);
                 queueToSave = new LinkedList<>();
             }
             State currState = queue.get(0);
             if (!currState.isEnd && !this.table.exists(queue.get(0)) && !currState.isPrune){
                 List<State> children = getNextStates(currState);
-                for (State s : children){
-                    alphaBeta(s);
+                if (!children.isEmpty()){
+                    for (State s : children){
+                        alphaBeta(s);
+                    }
+                    currState.setChildren(children);
+                    currState.hashChildren();
+                    if (currState.cH.isEmpty()){
+                        System.out.println(currState);
+                        System.out.println("empty");
+                    }
+                    queueToSave.addAll(children);
+                }else{
+
                 }
-                currState.setChildren(children);
-                currState.hashChildren();
-                queueToSave.addAll(children);
             }
             if (!currState.isPrune){
-                table.add(currState);
                 currState.hash = currState.hashCode();
+                table.add(currState);
             }
             queue.remove(0);
             trackingProgress(10000);
-            if (queueToSave.size() >= 200000){
-                System.out.println("queueToSave size > 200000, saving queueToSave");
+            if (queueToSave.size() >= 500000){
+                System.out.println("queueToSave size > 500000, saving queueToSave");
                 saveQueue("C:\\JSON output\\QueueToSave.json", queueToSave);
-                System.out.println("Saving remaining input queue");
+                System.out.println("Saving remaining input queue with size: " + queue.size());
                 saveQueue("C:\\JSON output\\Queue.json", queue);
                 System.out.println("Saving Table");
                 this.table.saveToFile("C:\\JSON output\\StateTable.json");
                 return;
             }
         }
-        System.out.println("Input Queue empty and queueToSave is too large, saving queueToSave with size " + queueToSave.size());
+        System.out.println("Input Queue empty or queueToSave is too large, saving queueToSave with size " + queueToSave.size());
         saveQueue("C:\\JSON output\\QueueToSave.json", queueToSave);
-        System.out.println("Saving Table");
+        System.out.println("Saving Table with size: " + this.table.table.size());
         this.table.saveToFile("C:\\JSON output\\StateTable.json");
+        System.out.println("Remaining queue size: " + queue.size());
+        if (!queue.isEmpty()){
+            System.out.println("Saving remaining queue with size: " + queue.size());
+            saveQueue("C:\\JSON output\\RemainingQueue.json", queue);
+        }
     }
 
-    public Pair solve(State root, int count){
-        if (count == 1){
-            return new Pair();
-        }
-        List<State> children = getNextStates(root);
-        root.setChildren(children);
-        root.hashChildren();
-        Pair<Result, Result> result = new Pair<>();
-//        List<Pair<Result, Result>> childrenResult = new ArrayList<>();
-        if (children.isEmpty() || root.isEnd){
-//            System.out.println("empty");
-            Pair<Result, Result> pair = new Pair<>();
-            pair.put(root.p1v, root.p2v);
-            return pair;
-        }else{
-            for (State child : children){
-                child.pD = count;
-//                child.printState();
-                if (table.exists(child)){
-                    break;
-                }else{
-                    table.add(child);
-                    result = solve(child, count + 1);
-//                    childrenResult.add(result);
-                }
-            }
-            return result;
-        }
-    }
+//    public Pair solve(State root, int count){
+//        if (count == 1){
+//            return new Pair();
+//        }
+//        List<State> children = getNextStates(root);
+//        root.setChildren(children);
+//        root.hashChildren();
+//        Pair<Result, Result> result = new Pair<>();
+////        List<Pair<Result, Result>> childrenResult = new ArrayList<>();
+//        if (children.isEmpty() || root.isEnd){
+////            System.out.println("empty");
+//            Pair<Result, Result> pair = new Pair<>();
+//            pair.put(root.p1v, root.p2v);
+//            return pair;
+//        }else{
+//            for (State child : children){
+//                child.pD = count;
+////                child.printState();
+//                if (table.exists(child)){
+//                    break;
+//                }else{
+//                    table.add(child);
+//                    result = solve(child, count + 1);
+////                    childrenResult.add(result);
+//                }
+//            }
+//            return result;
+//        }
+//    }
 
 }
